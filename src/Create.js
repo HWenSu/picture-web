@@ -20,6 +20,6 @@ const Create = ({msg, setMsg}) => {
       <button onClick={submitButtonHandler} >Submit</button>
     </form>
   )
-}
+} 
 
 export default Create
