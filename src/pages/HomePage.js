@@ -6,9 +6,11 @@ import axios from "axios";
 const HomePage = () => {
   let [data, setData] = useState(null);
   let [input, setInput] = useState('')
+  let [page, setPage] = useState(1)
+  let [currentSearch, setCurrentSearch] = useState('')
   const auth = "IoVLB7zwZCxDGHkKwaEbO8saubpAcanF1RZzk69ehS7aKLc2JsD4P10P";
   const initialURL = "https://api.pexels.com/v1/curated?page=1&per_page=15";
-  let searchURL = `https://api.pexels.com/v1/search?query=${input}&per_[age=15&page=1]`;
+  let searchURL = `https://api.pexels.com/v1/search?query=${input}&per_page=15&page=1`;
 
   const search = async (url) => {
     let result = await axios.get(url, {
@@ -16,6 +18,23 @@ const HomePage = () => {
     });
     setData(result.data.photos);
   };
+
+  const morePicture = async() => {
+    let newURL
+    setPage(page+1)
+    if (currentSearch === "") {
+      newURL = `https://api.pexels.com/v1/curated?page=${page}&per_page=15`;
+    } else {
+      newURL = `https://api.pexels.com/v1/search?query=${currentSearch}&per_page=15&page=${
+        page + 1
+      }`;
+    }
+    let result = await axios.get(newURL, {
+      headers: { Authorization: auth },
+    });
+    setData(data.concat(result.data.photos));
+    setCurrentSearch(input)
+  }
   
   useEffect(() => {
     search(initialURL);
@@ -31,6 +50,9 @@ const HomePage = () => {
           data.map((d) => {
             return <Picture data={d} />
           })}
+      </div>
+      <div className="morePicture">
+        <button onClick={morePicture}>More Pictures</button>
       </div>
     </div>
   );
