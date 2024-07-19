@@ -1,12 +1,14 @@
-import React from 'react'
+import React, { useRef, useEffect, useState } from 'react'
+
 
 const Search = ({search, setInput}) => {
+
   const inputHandler = (e) => {
     setInput(e.target.value)
   }
 
   return (
-    <div className='search'>
+    <div className='search' >
       <input className='input' onChange={inputHandler} type="text" />
       <button onClick={search}>Search</button>
     </div>

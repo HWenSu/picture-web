@@ -6,6 +6,7 @@ import "wc-waterfall";
 import Waterfall from "../components/Waterfall";
 import { InView, useInView } from 'react-intersection-observer';
 
+
 const HomePage = () => {
   let [data, setData] = useState([]);
   let [input, setInput] = useState('')
@@ -14,6 +15,8 @@ const HomePage = () => {
   const auth = "IoVLB7zwZCxDGHkKwaEbO8saubpAcanF1RZzk69ehS7aKLc2JsD4P10P";
   const initialURL = "https://api.pexels.com/v1/curated?page=1&per_page=15";
   let searchURL = `https://api.pexels.com/v1/search?query=${input}&per_page=15&page=1`;
+
+  
 
   const search = async (url) => {
     let result = await axios.get(url, {
