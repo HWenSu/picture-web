@@ -22,6 +22,11 @@ ul {
   justify-content: center;
 }
 
+.load {
+  height: 100vh;
+  overflow-y: auto;
+}
+
 .morePicture {
   display: flex;
   justify-content: center;
@@ -68,11 +73,18 @@ nav ul li a {
 }
 .search input,
 .search button {
-  font-size: 2rem;
-  padding: 0.5rem;
+  padding: 1rem;
   margin-right: 0.25rem;
   border-radius: 30px;
-  border: 3px solid rgb(100, 100, 100);
+  border: 2px solid rgb(100, 100, 100);
+}
+.search input {
+  width: 30vw;
+}
+.search input:focus {
+  color: #2f2f2f;
+  border: 3px solid rgb(48, 48, 48);
+  outline: none;
 }
 .search button {
   padding: 1rem 1.2rem;
@@ -95,21 +107,26 @@ nav ul li a {
   justify-content: center;
   align-items: center;
   font-size: 1.25rem;
-  background-color: rgb(228, 255, 226);
+  color: rgb(235, 235, 236);
+  background-color: rgb(42, 42, 42);
   min-height: 10vh;
 }
 
-.imageContainer {
+.picture .imageContainer {
   overflow: hidden;
   border-radius: 20px;
   box-shadow: rgba(14, 63, 126, 0.04) 0px 0px 0px 1px, rgba(42, 51, 69, 0.04) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.04) 0px 6px 6px -3px, rgba(14, 63, 126, 0.04) 0px 12px 12px -6px, rgba(131, 168, 216, 0.04) 0px 24px 24px -12px;
 }
-.imageContainer img {
+.picture .imageContainer img {
   width: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   transition: all 0.3s ease;
 }
-.imageContainer img:hover {
+.picture .imageContainer img:hover {
   transform: scale(1.25);
+}
+.picture .photographer {
+  margin: 0.5rem 1rem;
+  font-weight: 500;
 }/*# sourceMappingURL=style.css.map */

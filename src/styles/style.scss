@@ -22,6 +22,11 @@ ul {
   justify-content: center;
 }
 
+.load {
+  height: 100vh;
+  overflow-y: auto;
+}
+
 .morePicture {
   display: flex;
   justify-content: center;

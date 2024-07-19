@@ -4,9 +4,10 @@ import Picture from "../components/Picture";
 import axios from "axios";
 import "wc-waterfall";
 import Waterfall from "../components/Waterfall";
+import { InView, useInView } from 'react-intersection-observer';
 
 const HomePage = () => {
-  let [data, setData] = useState(null);
+  let [data, setData] = useState([]);
   let [input, setInput] = useState('')
   let [page, setPage] = useState(1)
   let [currentSearch, setCurrentSearch] = useState('')
@@ -37,7 +38,19 @@ const HomePage = () => {
     setData(data.concat(result.data.photos));
     setCurrentSearch(input)
   }
-  
+    //Lazy Load
+    const {ref, inView} = useInView({
+      triggerOnce: false,
+      root: null,
+      rootMargin: `0px 0px ${window.innerHeight}px 0px`,
+      onChange: (inView, entry) => {
+          console.log('info', inView, entry.intersectionRatio);
+          if (inView) {
+            morePicture();
+          }
+      }
+    })  
+
   useEffect(() => {
     search(initialURL);
   }, [])
@@ -69,8 +82,14 @@ const HomePage = () => {
           </div>
         </div>
       }
+     
       <div className="morePicture">
         <button onClick={morePicture}>More Pictures</button>
+      </div>
+      <div className='load' ref={ref}>
+        {/* {InView ? (
+      <Waterfall />  
+      ) : null} */}
       </div>
     </div>
   );
