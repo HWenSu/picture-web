@@ -78,7 +78,7 @@ const HomePage = () => {
             {data && (
               <Waterfall
                 data={data}
-                cols={4}
+                // cols={4}
                 width={window.innerWidth}
               />
             )}

@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Picture from "../components/Picture";
 
-
-
-
 //分配瀑布流每一列的函式
 const allocateItem = (data, cols, colWidth) => {
   //儲存每列瀑布流的內容
@@ -44,7 +41,7 @@ const allocateItem = (data, cols, colWidth) => {
 
 
 const Waterfall = (props) => {
-  const { data=[],cols=1, width, margin=40 } = props;
+  const { data=[],cols=4, width, margin=40 } = props;
   const defaultColWidth = (width - (cols - 1) * margin) / cols;  
   const [colList, setColList] = useState(
      allocateItem(data, cols, defaultColWidth)
