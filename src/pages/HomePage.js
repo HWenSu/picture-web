@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Search from "./Search";
 import Picture from "../components/Picture";
 import axios from "axios";
+import "wc-waterfall";
+import Waterfall from "../components/Waterfall";
 
 const HomePage = () => {
   let [data, setData] = useState(null);
@@ -42,15 +44,31 @@ const HomePage = () => {
 
   return (
     <div style={{ minHeight: "100vh" }}>
-      <Search search={()=>{
-        search(searchURL)
-      }} setInput={setInput}/>
-      <div className="pictures">
+      <Search
+        search={() => {
+          search(searchURL);
+        }}
+        setInput={setInput}
+      />
+      {
+        /* <div className="pictures" gap={10} cols={3}>
         {data &&
           data.map((d) => {
-            return <Picture data={d} />
+            return <Picture data={d} />;
           })}
-      </div>
+      </div> */
+        <div>
+          <div>
+            {data && (
+              <Waterfall
+                data={data}
+                cols={4}
+                width={window.innerWidth}
+              />
+            )}
+          </div>
+        </div>
+      }
       <div className="morePicture">
         <button onClick={morePicture}>More Pictures</button>
       </div>

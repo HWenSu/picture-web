@@ -3,14 +3,29 @@
   justify-content: center;
   align-items: center;
   padding: 3rem 0rem;
+  
 
   input,
   button {
     font-size: 2rem;
-    padding: 0.25rem;
-    border: 3px solid rgb(186, 252, 181);
+    padding: 0.5rem;
+    margin-right: 0.25rem;
+    border-radius: 30px;
+    border: 3px solid rgb(100, 100, 100);
   }
-  button {
-    background-color: rgb(186, 252, 181);
+    button {
+    padding: 1rem 1.2rem;
+    font-size: 1.2rem;
+    border: none;
+    color: #f3eaea;
+    background-color: rgb(43, 43, 43);
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+      &:hover {
+          background-color: rgb(230, 230, 230);
+          color: #2f2f2f;
+          box-shadow: rgba(198, 198, 205, 0.25) 0px 30px 60px -12px inset, rgba(134, 134, 134, 0.3) 0px 18px 36px -18px inset;
+        }
   }
 }
