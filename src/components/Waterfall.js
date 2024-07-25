@@ -37,9 +37,6 @@ const allocateItem = (data, cols, colWidth) => {
   return arr
   }
 
-
-
-
 const Waterfall = (props) => {
   const { data=[],cols=4, width, margin=40 } = props;
   const defaultColWidth = (width - (cols - 1) * margin) / cols;  
@@ -51,8 +48,6 @@ const Waterfall = (props) => {
     setColList(allocateItem(data, cols, defaultColWidth));
   },[data, cols, defaultColWidth])
 
-
-  
   return (
     <div className="waterfall" style={{ width: 100 + "%", margin: "auto" }}>
       {colList.map((col, fIndex) => (
@@ -85,7 +80,6 @@ const Waterfall = (props) => {
       
     </div>
   );
-
 
 }
 

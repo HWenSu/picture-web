@@ -10,7 +10,7 @@ const Lazyload = (props) => {
     root: document.querySelector('.scroll-container'),
     rootMargin: `0px 0px ${window.innerHeight}px 0px`,
     onChange: (inView, entry) => {
-        console.log('info', inView, entry.intersectionRatio);
+        console.log('info', inView, entry.intersectionRatio,inv );
     }
   })
   

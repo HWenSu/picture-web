@@ -85,10 +85,7 @@ const HomePage = () => {
           </div>
         </div>
       }
-     
-      <div className="morePicture">
-        <button onClick={morePicture}>More Pictures</button>
-      </div>
+
       <div className='load' ref={ref}>
         {/* {InView ? (
       <Waterfall />  
