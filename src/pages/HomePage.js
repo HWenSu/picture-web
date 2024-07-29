@@ -39,7 +39,6 @@ const HomePage = () => {
       headers: { Authorization: auth },
     });
     setData(data.concat(result.data.photos));
-    setCurrentSearch(input)
   }
     //Lazy Load
     const {ref, inView} = useInView({
@@ -54,9 +53,9 @@ const HomePage = () => {
       }
     })  
 
-  useEffect(() => {
-    search(initialURL);
-  }, [])
+      useEffect(() => {
+        search(initialURL);
+      }, []);
 
   return (
     <div style={{ minHeight: "100vh" }}>
@@ -64,8 +63,8 @@ const HomePage = () => {
         search={() => {
           if(input.trim() !== "") {
             search(searchURL);
-          }
-          
+            setCurrentSearch(input);
+          } 
         }}
         setInput={setInput}
       />
