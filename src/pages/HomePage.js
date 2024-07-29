@@ -17,7 +17,7 @@ const HomePage = () => {
   let searchURL = `https://api.pexels.com/v1/search?query=${input}&per_page=15&page=1`;
 
   
-
+//取得Search API
   const search = async (url) => {
     let result = await axios.get(url, {
       headers: { Authorization: auth },
@@ -62,7 +62,10 @@ const HomePage = () => {
     <div style={{ minHeight: "100vh" }}>
       <Search
         search={() => {
-          search(searchURL);
+          if(input.trim() !== "") {
+            search(searchURL);
+          }
+          
         }}
         setInput={setInput}
       />

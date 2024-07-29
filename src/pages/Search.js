@@ -1,10 +1,12 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React from 'react'
 
 
 const Search = ({search, setInput}) => {
 
   const inputHandler = (e) => {
-    setInput(e.target.value)
+    if (e.target.value) {
+      setInput(e.target.value);
+    }
   }
 
   return (
