@@ -5,7 +5,7 @@ import HomePage from "./pages/HomePage";
 import About from "./pages/About";
 import Page404 from "./pages/Page404";
 import Portfolio from "./pages/Portfolio";
-
+import Dashboard from "./pages/Dashboard";
 
 
 function App() {
@@ -16,7 +16,8 @@ function App() {
           <Route index element={<HomePage />}></Route>
           <Route path="about" element={<About />}></Route>
           <Route path="*" element={<Page404 />}></Route>
-          <Route path="portfolio" element={<Portfolio/>}></Route>
+          <Route path="portfolio" element={<Portfolio />}></Route>
+          <Route path="dashboard" element={<Dashboard/>}></Route>
         </Route>
       </Routes>
     </BrowserRouter>
