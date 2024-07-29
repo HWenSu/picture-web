@@ -9,17 +9,20 @@ const Layout = () => {
       <nav>
         <ul>
           <li>
-            <Link to='/'>Home Page</Link>
+            <Link to="/">Home Page</Link>
           </li>
           <li>
-            <Link to='/about'>About</Link>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/portfolio">Portfolio</Link>
           </li>
         </ul>
       </nav>
       <Outlet />
       <Footer />
     </div>
-  )
+  );
 }
 
 export default Layout
