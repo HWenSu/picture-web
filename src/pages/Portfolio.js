@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Waterfall from '../components/Waterfall'
-
-const dataArr = localStorage.getItem('imageURLs')
+import LocalImageUploader from '../components/LocalImageUploader';
 
 const Portfolio = () => {
+  
+ const [selected, setSelected] = useState(null);
+
   return (
     <div>
-      {dataArr && <Waterfall data={dataArr} width={window.innerWidth} />
+      { selected && <Waterfall data={selected} width={window.innerWidth} />
       }
+      <LocalImageUploader />
     </div>
   );
 }
