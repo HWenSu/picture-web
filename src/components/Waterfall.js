@@ -38,7 +38,7 @@ const allocateItem = (data, cols, colWidth) => {
   }
 
 const Waterfall = (props) => {
-  const { data=[],cols=4, width, margin=40 } = props;
+  const { data = [], cols = 4, width, margin = 40, imgURL } = props;
   const defaultColWidth = (width - (cols - 1) * margin) / cols;  
   const [colList, setColList] = useState(
      allocateItem(data, cols, defaultColWidth)
@@ -70,14 +70,18 @@ const Waterfall = (props) => {
               }}
             >
               {/* <div className="pictures"> */}
-                <Picture data={item} height={item.displayHeight-5} />
+
+              <Picture
+                data={item}
+                imgURL={item.src.large}
+                height={item.displayHeight - 5}
+              />
 
               {/* </div> */}
             </li>
           ))}
         </ul>
       ))}
-      
     </div>
   );
 

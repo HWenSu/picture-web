@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Search from "./Search";
-import Picture from "../components/Picture";
 import axios from "axios";
 import "wc-waterfall";
 import Waterfall from "../components/Waterfall";
@@ -53,18 +52,25 @@ const HomePage = () => {
       }
     })  
 
+ 
+
       useEffect(() => {
         search(initialURL);
       }, []);
+
+ const imgURL = () => {
+   return data ? data.map((item) => item.src.large) : [];
+ };
+
 
   return (
     <div style={{ minHeight: "100vh" }}>
       <Search
         search={() => {
-          if(input.trim() !== "") {
+          if (input.trim() !== "") {
             search(searchURL);
             setCurrentSearch(input);
-          } 
+          }
         }}
         setInput={setInput}
       />
@@ -79,6 +85,7 @@ const HomePage = () => {
           <div>
             {data && (
               <Waterfall
+                imgURL={imgURL()}
                 data={data}
                 // cols={4}
                 width={window.innerWidth}
@@ -88,7 +95,7 @@ const HomePage = () => {
         </div>
       }
 
-      <div className='load' ref={ref}>
+      <div className="load" ref={ref}>
         {/* {InView ? (
       <Waterfall />  
       ) : null} */}
