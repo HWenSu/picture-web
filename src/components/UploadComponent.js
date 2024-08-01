@@ -29,6 +29,9 @@ const UploadComponent = () => {
   
   const handleFileChange = (e) => {
     const files = Array.from(e.target.files);
+    if (files.length > 50 ) {
+      alert('最多只能上傳50個檔案')
+    }
 
     const formData = new FormData()
     //把每筆file加入formData中
