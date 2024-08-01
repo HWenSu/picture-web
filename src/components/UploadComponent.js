@@ -5,6 +5,27 @@ import Waterfall from './Waterfall'
 
 const UploadComponent = () => {
   const [ selected, setSelected ] = useState(null)
+  //初始化
+  
+  useEffect(()=> {
+    //從 local storage 獲取目前圖片訊息
+    const storedImages = localStorage.getItem('uploadedImages')
+    if(storedImages) {
+      setSelected(JSON.parse(storedImages))
+    } else {
+      //如果 local storage 沒有數據則從 API 取得
+      axios.get("http://localhost:5000/images")
+        .then(response=> {
+          setSelected(response.data)
+          localStorage.setItem("uploadedImages", JSON.stringify(response.data));
+          console.log("圖片訊息", response.data)
+        })
+        
+        .catch(error => {
+          console.error('Error fetching images', error)
+        })
+    }
+  }, []) 
   
   const handleFileChange = (e) => {
     const files = Array.from(e.target.files);
@@ -18,32 +39,18 @@ const UploadComponent = () => {
     axios.post("http://localhost:5000/upload", formData)
     .then(response => {
       //重新定義資料格式 匹配pixels API 格式來使用相同PICTURE組件
-      const formattedData = response.data.map((item) => ({
-        displayHeight: item.displayHeight,
-        height: item.height,
-        src: {
-          large: item.url,
-        },
-        width: item.width,
-      }));
-      setSelected(formattedData);
+      const formattedData = response.data
+      const updateImages = [...selected, ...formattedData]
+      setSelected(updateImages)
+      //更新 local storage
+       localStorage.setItem("uploadedImages", JSON.stringify(updateImages));
       
     })
     .catch(error => {
       console.error('Error uploading files:', error)
     })
   }
-
-  // useEffect(()=>{
-  //   if(selected) {
-  //     //讀取現有Data
-  //     const existingData = JSON.parse(localStorage.getItem('previewData')) || []
-  //     //加入新的Data
-  //     const updateData = {...existingData, ...selected}
-  //     //存入local storage 
-  //     localStorage.setItem('previewData', JSON.stringify(updateData))
-  //   }
-  // },[selected])
+  // localStorage.clear()
   console.log(selected);
   return (
     <div>
