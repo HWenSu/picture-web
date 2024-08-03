@@ -52,8 +52,6 @@ const HomePage = () => {
       }
     })  
 
- 
-
       useEffect(() => {
         search(initialURL);
       }, []);
@@ -75,12 +73,7 @@ const HomePage = () => {
         setInput={setInput}
       />
       {
-        /* <div className="pictures" gap={10} cols={3}>
-        {data &&
-          data.map((d) => {
-            return <Picture data={d} />;
-          })}
-      </div> */
+
         <div>
           <div>
             {data && (
@@ -96,9 +89,6 @@ const HomePage = () => {
       }
 
       <div className="load" ref={ref}>
-        {/* {InView ? (
-      <Waterfall />  
-      ) : null} */}
       </div>
     </div>
   );

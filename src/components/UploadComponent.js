@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from 'axios'
 import Waterfall from './Waterfall'
+import { InView, useInView } from 'react-intersection-observer';
 
 
 const UploadComponent = () => {
-  const [ selected, setSelected ] = useState(null)
-  //初始化
+  const [ selected, setSelected ] = useState([])
+  const [ page, setPage ] = useState(1)
   
+  //初始化
   useEffect(()=> {
     //從 local storage 獲取目前圖片訊息
     const storedImages = localStorage.getItem('uploadedImages')
@@ -14,10 +16,10 @@ const UploadComponent = () => {
       setSelected(JSON.parse(storedImages))
     } else {
       //如果 local storage 沒有數據則從 API 取得
-      axios.get("http://localhost:5000/images")
+      axios.get(`http://localhost:5000/images?page=${page}&limit=15`)
         .then(response=> {
-          setSelected(response.data)
-          localStorage.setItem("uploadedImages", JSON.stringify(response.data));
+          setSelected(response.data.data)
+          localStorage.setItem("uploadedImages", JSON.stringify(response.data.data));
           console.log("圖片訊息", response.data)
         })
         
@@ -26,6 +28,27 @@ const UploadComponent = () => {
         })
     }
   }, []) 
+
+  const morePictures = async() => {
+    let newURL
+    setPage (page +1)
+    newURL = `http://localhost:5000/images?page=${page}&limit=15`
+    let result = await axios.get(newURL)
+    setSelected(result.data)
+  }
+
+  //Lazy Load
+  const {ref, inView} = useInView ({
+    triggerOnce: false,
+    root: null,
+    rootMargin: `0px 0px ${window.innerHeight}px 0px`,
+    onChange: (inView, entry) => {
+      console.log('info', inView, entry.intersectionRatio)
+      if(inView) {
+        morePictures()
+      }
+    }
+  })
   
   const handleFileChange = (e) => {
     const files = Array.from(e.target.files);
@@ -59,6 +82,8 @@ const UploadComponent = () => {
     <div>
       <input type="file" accept='image/*' multiple onChange={handleFileChange}/>
       { selected && <Waterfall data={selected} width={window.innerWidth} /> }
+      <div className="load" ref={ref}>
+      </div>
     </div>
   )
 }
