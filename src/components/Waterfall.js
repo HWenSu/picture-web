@@ -30,33 +30,52 @@ const allocateItem = (data, cols, colWidth) => {
   //透過計算展示高度, 設置瀑布流的內容列表
   data.forEach((item) => {
     const index = getIndexOfHightFlow()
-    item.displayHeight = ( item.height * colWidth ) / item.width
+    item.displayHeight = item.height * ( Math.floor(colWidth) / item.width)
+    console.log(colWidth, item.width, item.height)
+    console.log(item.displayHeight);
     arr[index].push(item)
     heightArr[index] += item.displayHeight
   })
   return arr
   }
 
-const Waterfall = (props) => {
-  const { data = [], cols = 4, width, margin = 40, imgURL } = props;
-  const defaultColWidth = (width - (cols - 1) * margin) / cols;  
-  const [colList, setColList] = useState(
-     allocateItem(data, cols, defaultColWidth)
-   );
+  
 
+const Waterfall = (props) => {
+  const { data = [], cols = 4, margin = 40, imgURL } = props;
+  const [width, setWidth] = useState(window.innerWidth) //視窗寬度
+  // const defaultColWidth = (width - (cols - 1) * margin) / cols;  
+  const [colList, setColList] = useState([]);
+
+  const recalculateLayout = () => {
+    const currentWidth = window.innerWidth * 0.8 //視窗寬度的80%
+    const colWidth = (currentWidth - ((cols-1) * margin )) / cols
+    setColList(allocateItem(data, cols, colWidth))
+    setWidth(currentWidth) // 更新當前視窗寬度
+  }
+
+  //監聽視窗變化
   useEffect(() => {
-    setColList(allocateItem(data, cols, defaultColWidth));
-  },[data, cols, defaultColWidth])
+    recalculateLayout() //初始化計算一次
+    const handleResize = () => {
+      recalculateLayout()
+    }
+    // 設置監聽器
+    window.addEventListener("resize", handleResize)
+    //清除監聽器
+    return () => window.removeEventListener("resize", handleResize)
+    
+  },[data, cols, margin])
 
   return (
-    <div className="waterfall" style={{ width: 100 + "%", margin: "auto" }}>
+    <div className="waterfall" style={{ width: 80 + "%", margin: "auto" }}>
       {colList.map((col, fIndex) => (
         <ul
           className="waterfall-list"
           style={{
-            width: defaultColWidth + "px",
+            width: (width - (cols -1) * margin) / cols + "px",
             display: "inline-block",
-            margin: "1vw",
+            margin: "10px",
           }}
           key={"flow_" + fIndex}
         >
@@ -74,9 +93,8 @@ const Waterfall = (props) => {
               <Picture
                 data={item}
                 imgURL={item.src.large}
-                height={item.displayHeight - 5}
+                height={item.displayHeight}
               />
-
               {/* </div> */}
             </li>
           ))}
