@@ -7,12 +7,13 @@ import { InView, useInView } from 'react-intersection-observer';
 const UploadComponent = () => {
   const [ selected, setSelected ] = useState([])
   const [ page, setPage ] = useState(1)
+  const baseURL = "https://picture-web-server.vercel.app" || "http://localhost:5000"
   
   //初始化
   useEffect(()=> {
 
     //從 API 取得數據
-      axios.get(`http://localhost:5000/images?page=${page}&limit=15`)
+    axios.get(`${baseURL}/images?page=${page}&limit=15`)
         .then(response=> {
           const data = response.data.data
           setSelected(data)
@@ -28,7 +29,7 @@ const UploadComponent = () => {
   const morePictures = async() => {
     let newURL
     setPage (page +1)
-    newURL = `http://localhost:5000/images?page=${page}&limit=15`
+    newURL = `${baseURL}/images?page=${page}&limit=15`
     let result = await axios.get(newURL)
     if(result.data.data.length !== selected.length){
       setSelected(result.data.data)
@@ -60,7 +61,7 @@ const UploadComponent = () => {
       formData.append('files', file)
     })
 
-    axios.post("http://localhost:5000/upload", formData)
+    axios.post(`${baseURL}/upload`, formData)
     .then(response => {
       //重新定義資料格式 匹配pixels API 格式來使用相同PICTURE組件
       const formattedData = response.data
