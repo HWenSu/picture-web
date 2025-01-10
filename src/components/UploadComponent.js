@@ -10,23 +10,19 @@ const UploadComponent = () => {
   
   //初始化
   useEffect(()=> {
-    //從 local storage 獲取目前圖片訊息
-    const storedImages = localStorage.getItem('uploadedImages')
-    if(storedImages) {
-      setSelected(JSON.parse(storedImages))
-    } else {
-      //如果 local storage 沒有數據則從 API 取得
+
+    //從 API 取得數據
       axios.get(`http://localhost:5000/images?page=${page}&limit=15`)
         .then(response=> {
-          setSelected(response.data.data)
-          localStorage.setItem("uploadedImages", JSON.stringify(response.data.data));
-          console.log("圖片訊息", response.data)
+          const data = response.data.data
+          setSelected(data)
+          console.log("圖片訊息", data)
         })
         
         .catch(error => {
           console.error('Error fetching images', error)
         })
-    }
+    
   }, []) 
 
   const morePictures = async() => {
@@ -34,7 +30,9 @@ const UploadComponent = () => {
     setPage (page +1)
     newURL = `http://localhost:5000/images?page=${page}&limit=15`
     let result = await axios.get(newURL)
-    setSelected(result.data)
+    if(result.data.data.length !== selected.length){
+      setSelected(result.data.data)
+    }
   }
 
   //Lazy Load
@@ -68,16 +66,14 @@ const UploadComponent = () => {
       const formattedData = response.data
       const updateImages = [...selected, ...formattedData]
       setSelected(updateImages)
-      //更新 local storage
-       localStorage.setItem("uploadedImages", JSON.stringify(updateImages));
-      
     })
     .catch(error => {
       console.error('Error uploading files:', error)
     })
   }
-  // localStorage.clear()
-  console.log(selected);
+
+  console.log(selected)
+  
   return (
     <div>
       <input type="file" accept='image/*' multiple onChange={handleFileChange}/>

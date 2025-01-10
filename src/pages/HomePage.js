@@ -60,6 +60,7 @@ const HomePage = () => {
    return data ? data.map((item) => item.src.large) : [];
  };
 
+ console.log(data)
 
   return (
     <div style={{ minHeight: "100vh" }}>

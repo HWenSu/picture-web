@@ -27,12 +27,13 @@ const allocateItem = (data, cols, colWidth) => {
     return minIndex
   }
 
+
   //透過計算展示高度, 設置瀑布流的內容列表
   data.forEach((item) => {
     const index = getIndexOfHightFlow()
     item.displayHeight = item.height * ( Math.floor(colWidth) / item.width)
-    console.log(colWidth, item.width, item.height)
-    console.log(item.displayHeight);
+    // console.log(colWidth, item.width, item.height)
+    // console.log(item.displayHeight);
     arr[index].push(item)
     heightArr[index] += item.displayHeight
   })
