@@ -7,7 +7,7 @@ import { InView, useInView } from 'react-intersection-observer';
 const UploadComponent = () => {
   const [ selected, setSelected ] = useState([])
   const [ page, setPage ] = useState(1)
-  const baseURL = "https://picture-web-server.vercel.app" || "http://localhost:5000"
+  const baseURL = "https://picture-web-server.zeabur.internal" || "http://localhost:5000"
   
   //初始化
   useEffect(()=> {
