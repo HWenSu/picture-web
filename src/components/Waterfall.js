@@ -90,6 +90,7 @@ const Waterfall = (props) => {
               }}
             >
               {/* <div className="pictures"> */}
+              {console.log(item.src)}
 
               <Picture
                 data={item}

@@ -7,8 +7,8 @@ import { InView, useInView } from 'react-intersection-observer';
 const UploadComponent = () => {
   const [ selected, setSelected ] = useState([])
   const [ page, setPage ] = useState(1)
-  const baseURL = "https://picture-web-server.zeabur" || "http://localhost:5000"
-  
+  const baseURL = process.env.REACT_APP_API_BASE_URL
+  console.log(baseURL)
   //初始化
   useEffect(()=> {
 
@@ -74,11 +74,15 @@ const UploadComponent = () => {
   }
 
   console.log(selected)
+  const vailImg = (selected) => {
+    return selected.filter((img) => img?.src?.large)
+  }
+  // console.log(vailImg(selected))
   
   return (
     <div>
       <input type="file" accept='image/*' multiple onChange={handleFileChange}/>
-      { selected && <Waterfall data={selected} width={window.innerWidth} /> }
+      {selected && <Waterfall data={vailImg(selected)} width={window.innerWidth} /> }
       <div className="load" ref={ref}>
       </div>
     </div>
