@@ -7,6 +7,7 @@ import { InView, useInView } from 'react-intersection-observer';
 const UploadComponent = () => {
   const [ selected, setSelected ] = useState([])
   const [ page, setPage ] = useState(1)
+  const [ isLoading, setIsLoading] = useState(false)
   const baseURL = process.env.REACT_APP_API_BASE_URL
   console.log(baseURL)
   //初始化
@@ -24,11 +25,14 @@ const UploadComponent = () => {
           console.error('Error fetching images', error)
         })
     
-  }, []) 
+  }, [page, baseURL]) 
 
   const morePictures = async() => {
+    //如果正在加載中則返回
+    if(isLoading) return
     //新增頁面+1
     const newURL = `${baseURL}/images?page=${page+1}&limit=15`
+    setIsLoading(true)
     try{
       const result = await axios.get(newURL)
       const newImgs = result.data.data
@@ -38,6 +42,9 @@ const UploadComponent = () => {
       }
     } catch (error) {
       console.error("Error fetching more pictures:", error);
+    } finally {
+      //重置加載狀態
+      setIsLoading(false)
     }
   }
 

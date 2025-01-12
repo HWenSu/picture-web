@@ -83,7 +83,7 @@ const Waterfall = (props) => {
           {col.map((item, iIndex) => (
             <li
               className="waterfall-item"
-              key={iIndex}
+              key={item.src.large || iIndex}
               style={{
                 // height: item.displayHeight + "px",
                 marginBottom: margin,
@@ -92,6 +92,7 @@ const Waterfall = (props) => {
               {/* <div className="pictures"> */}
 
               <Picture
+                
                 data={item}
                 imgURL={item.src.large}
                 height={item.displayHeight}
