@@ -27,12 +27,17 @@ const UploadComponent = () => {
   }, []) 
 
   const morePictures = async() => {
-    let newURL
-    setPage (page +1)
-    newURL = `${baseURL}/images?page=${page}&limit=15`
-    let result = await axios.get(newURL)
-    if(result.data.data.length !== selected.length){
-      setSelected(result.data.data)
+    //新增頁面+1
+    const newURL = `${baseURL}/images?page=${page+1}&limit=15`
+    try{
+      const result = await axios.get(newURL)
+      const newImgs = result.data.data
+      if(newImgs.length>0){
+        setSelected((prev)=>[...prev, ...newImgs])
+        setPage((prevPage)=> prevPage+1)
+      }
+    } catch (error) {
+      console.error("Error fetching more pictures:", error);
     }
   }
 
