@@ -25,7 +25,7 @@ const UploadComponent = () => {
           console.error('Error fetching images', error)
         })
     
-  }, [page, baseURL]) 
+  }, []) 
 
   const morePictures = async() => {
     //如果正在加載中則返回
