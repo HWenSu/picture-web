@@ -31,14 +31,15 @@ const UploadComponent = () => {
     //如果正在加載中則返回
     if(isLoading) return
     //新增頁面+1
-    const newURL = `${baseURL}/images?page=${page+1}&limit=15`
+    const nextPage = page+1
+    const newURL = `${baseURL}/images?page=${nextPage}&limit=15`
     setIsLoading(true)
     try{
       const result = await axios.get(newURL)
       const newImgs = result.data.data
       if(newImgs.length>0){
         setSelected((prev)=>[...prev, ...newImgs])
-        setPage((prevPage)=> prevPage+1)
+        setPage(nextPage)
       }
     } catch (error) {
       console.error("Error fetching more pictures:", error);
