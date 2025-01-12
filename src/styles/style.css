@@ -57,6 +57,12 @@ nav ul {
   justify-content: flex-end;
   margin-right: 2rem;
 }
+@media (max-width: 768px) {
+  nav ul {
+    margin: 0 auto;
+    justify-content: center;
+  }
+}
 nav ul li {
   padding: 0.5rem 1rem;
 }
@@ -76,6 +82,11 @@ nav ul li a {
           backdrop-filter: blur(5px);
   margin-bottom: 2rem;
 }
+@media (max-width: 768px) {
+  .search {
+    padding: 0.8rem 0rem;
+  }
+}
 .search input,
 .search button {
   padding: 1rem;
@@ -91,6 +102,13 @@ nav ul li a {
   border: 3px solid rgb(48, 48, 48);
   outline: none;
 }
+@media (max-width: 768px) {
+  .search input {
+    width: 50vw;
+    padding: 0.8rem 1rem;
+    margin: 0 0.8rem;
+  }
+}
 .search button {
   padding: 1rem 1.2rem;
   font-size: 1.2rem;
@@ -105,6 +123,12 @@ nav ul li a {
   background-color: rgb(230, 230, 230);
   color: #2f2f2f;
   box-shadow: rgba(198, 198, 205, 0.25) 0px 30px 60px -12px inset, rgba(134, 134, 134, 0.3) 0px 18px 36px -18px inset;
+}
+@media (max-width: 768px) {
+  .search button {
+    padding: 1rem;
+    font-size: 0.8rem;
+  }
 }
 
 .footer {
@@ -134,4 +158,10 @@ nav ul li a {
 .picture .photographer {
   margin: 0.5rem 1rem;
   font-weight: 500;
+}
+@media (max-width: 768px) {
+  .picture .photographer {
+    margin: 0.2rem 0.5rem;
+    font-size: 12px;
+  }
 }/*# sourceMappingURL=style.css.map */

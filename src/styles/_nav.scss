@@ -1,3 +1,4 @@
+$mobile: 768px;
 nav {
   background-color: rgb(52, 52, 52);
 
@@ -5,6 +6,10 @@ nav {
     display: flex;
     justify-content: flex-end;
     margin-right: 2rem;
+    @media (max-width:$mobile){
+      margin:0 auto;
+      justify-content: center;
+    }
      
     li {
       padding: 0.5rem 1rem;

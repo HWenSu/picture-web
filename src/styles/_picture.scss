@@ -1,25 +1,30 @@
-.picture{
-  .imageContainer {
-    width: 100%;
-    height: 0; // 清除預設高度
-    overflow: hidden;
-    border-radius:20px;
-    box-shadow: rgba(14, 63, 126, 0.04) 0px 0px 0px 1px, rgba(42, 51, 69, 0.04) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.04) 0px 6px 6px -3px, rgba(14, 63, 126, 0.04) 0px 12px 12px -6px, rgba(131, 168, 216, 0.04) 0px 24px 24px -12px;
-    img {
-      // width: 100%;
-      // height: 
-      object-fit: cover;
-      transition: all 0.3s ease;
-      &:hover {
-        transform: scale(1.25);
-      }
-    }
-  }
-  .photographer{
-    margin: 0.5rem 1rem;
-    font-weight: 500;
-    // border: 1px solid black;
-  }
-}
+// $mobile: 768px;
+// .picture{
+//   .imageContainer {
+//     width: 100%;
+//     height: 0; // 清除預設高度
+//     overflow: hidden;
+//     border-radius:20px;
+//     box-shadow: rgba(14, 63, 126, 0.04) 0px 0px 0px 1px, rgba(42, 51, 69, 0.04) 0px 1px 1px -0.5px, rgba(42, 51, 70, 0.04) 0px 3px 3px -1.5px, rgba(42, 51, 70, 0.04) 0px 6px 6px -3px, rgba(14, 63, 126, 0.04) 0px 12px 12px -6px, rgba(131, 168, 216, 0.04) 0px 24px 24px -12px;
+//     img {
+//       // width: 100%;
+//       // height: 
+//       object-fit: cover;
+//       transition: all 0.3s ease;
+//       &:hover {
+//         transform: scale(1.25);
+//       }
+//     }
+//   }
+//   .photographer{
+//     margin: 0.5rem 1rem;
+//     font-weight: 500;
+//     @media (max-width: $mobile) {
+//       font-size: 12px;
+//       margin: 0.2rem 0.5rem;
+//     }
+//     // border: 1px solid black;
+//   }
+// }
 
 

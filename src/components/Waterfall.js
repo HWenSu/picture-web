@@ -43,15 +43,19 @@ const allocateItem = (data, cols, colWidth) => {
   
 
 const Waterfall = (props) => {
-  const { data = [], cols = 4, margin = 40, imgURL } = props;
+  const { data = [], margin = 40, imgURL } = props;
   const [width, setWidth] = useState(window.innerWidth) //視窗寬度
   // const defaultColWidth = (width - (cols - 1) * margin) / cols;  
+  const [cols, setCols] = useState(4)
   const [colList, setColList] = useState([]);
 
   const recalculateLayout = () => {
-    const currentWidth = window.innerWidth * 0.8 //視窗寬度的80%
-    const colWidth = (currentWidth - ((cols-1) * margin )) / cols
-    setColList(allocateItem(data, cols, colWidth))
+    const currentWidth = window.innerWidth * 0.9 //視窗寬度的80%
+    //依螢幕寬度判斷col值
+    const newCols = currentWidth < 768? 3:4
+    setCols(newCols)
+    const colWidth = (currentWidth - ((newCols-1) * margin )) / newCols
+    setColList(allocateItem(data, newCols, colWidth))
     setWidth(currentWidth) // 更新當前視窗寬度
   }
 
@@ -69,7 +73,7 @@ const Waterfall = (props) => {
   },[data, cols, margin])
 
   return (
-    <div className="waterfall" style={{ width: 80 + "%", margin: "auto" }}>
+    <div className="waterfall" style={{ width: 90 + "%", margin: "auto" }}>
       {colList.map((col, fIndex) => (
         <ul
           className="waterfall-list"
@@ -86,7 +90,7 @@ const Waterfall = (props) => {
               key={item.src.large || iIndex}
               style={{
                 // height: item.displayHeight + "px",
-                marginBottom: margin,
+                marginBottom:" 1.7rem",
               }}
             >
               {/* <div className="pictures"> */}
