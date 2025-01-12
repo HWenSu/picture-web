@@ -52,7 +52,7 @@ const Waterfall = (props) => {
   const recalculateLayout = () => {
     const currentWidth = window.innerWidth * 0.9 //視窗寬度的80%
     //依螢幕寬度判斷col值
-    const newCols = currentWidth < 768? 3:4
+    const newCols = currentWidth < 768? 2:4
     setCols(newCols)
     const colWidth = (currentWidth - ((newCols-1) * margin )) / newCols
     setColList(allocateItem(data, newCols, colWidth))
