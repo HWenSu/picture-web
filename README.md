@@ -1,70 +1,98 @@
-# Getting Started with Create React App
+# 瀑布流圖片網站
+![專案封面圖](https://github.com/HWenSu/picture-web/blob/main/HomePage.gif)
+>瀑布流圖片網站是一個基於 React 的項目，旨在展示以瀑布流佈局 + 無限下滑的方式呈現的圖片。主頁可以有搜尋功能，作品集網頁提供上傳本地圖片並可新增到瀑布流佈局中。
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**網站預覽** : https://picture-web.vercel.app
 
-## Available Scripts
+**後端repo** : https://github.com/HWenSu/picture-web-server
 
-In the project directory, you can run:
 
-### `npm start`
+## 功能特色
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **瀑布流佈局**：以瀑布流形式展示圖片，提供良好的視覺體驗。
+- **圖片懶加載**：在使用者滾動頁面時按需加載圖片，提升頁面加載性能。
+- **響應式設計**: 支援不同裝置瀏覽介面。
+- **響應式設計**：適配不同尺寸的螢幕，確保在各種設備上都有良好的顯示效果。
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 技術架構
 
-### `npm test`
+### 前端技術
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **前端框架**：React
+- **樣式**：SCSS
+- **建置工具**：Create React App
 
-### `npm run build`
+### 後端技術
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Node.js (Express.js)**：處理 API 請求。
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 其他工具
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **react-intersection-observer**：用於偵測 DOM 元素是否進入或離開可視範圍，適合實現懶加載功能。
 
-### `npm run eject`
+### 搜尋功能畫面
+![搜尋功能](https://github.com/HWenSu/picture-web/blob/main/Search.gif)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 上傳圖片畫面
+![上傳功能](https://github.com/HWenSu/picture-web/blob/main/Upload.gif)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 安裝步驟
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 系統需求
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Node.js**：版本 >= 16.0.0
+- **npm 或 yarn**：包管理器
 
-## Learn More
+### 取得專案
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**1. Clone專案至本地**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   ```bash
+   git clone https://github.com/HWenSu/picture-web.git
+   cd picture-web
+   ```
 
-### Code Splitting
+**2. 安裝相依套件**
+確保您已安裝 Node.js（建議使用最新的 LTS 版本）。然後執行以下命令：
+   ```bash
+   npm install
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+**3. 啟動開發伺服器**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   ```bash
+   npm start
+   ```
 
-### Making a Progressive Web App
+   預設伺服器地址：`http://localhost:3000`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+##  開發筆記
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1. **瀑布流的分配邏輯 **：
+   - 功能：計算圖片分配到每列的邏輯，根據每列的高度動態分配。
+   - 邏輯：
+        1. 初始化兩個陣列：
+        -- arr：儲存每列的內容。
+        -- heightArr：記錄每列總高度。
+        2. 遍歷資料 (data)：
+        -- 計算每張圖片在當前列寬下的顯示高度 displayHeight。
+        -- 找出最矮的列（getIndexOfHightFlow 函數）。
+        -- 將圖片分配到該列，並更新對應列的高度。
+        -- 輸出：分配後的圖片列數據（二维陣列）。
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+##  授權條款
 
-### `npm run build` fails to minify
+此專案基於 MIT 許可證，詳細內容請參閱 [LICENSE](./LICENSE)。
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## 聯絡方式
+
+如有任何疑問或建議，請聯繫：
+
+- **作者**：HWenSu
+- **Email**：[trista44488@gmail.com](mailto:trista44488@gmail.com)
+- **GitHub**：[HWenSu](https://github.com/HWenSu)
+
