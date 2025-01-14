@@ -25,6 +25,7 @@
 ### 後端技術
 
 - **Node.js (Express.js)**：處理 API 請求。
+- **Pexels API** : 提供圖片的公開API。
 
 ### 其他工具
 
