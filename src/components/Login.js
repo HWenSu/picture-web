@@ -3,10 +3,14 @@ import LoginModal from './LoginModal'
 
 const Login = () => {
   //Login按鈕點擊狀態
-  const [isClicked, setIsClicked] = useState(false)
+  const [isClosed, setIsClosed] = useState(true)
 
   const loginHandler = () => {
-    setIsClicked(!isClicked)
+    setIsClosed(!isClosed)
+  }
+
+  const onClose = ()=> {
+    setIsClosed(true)
   }
 
   return (
@@ -14,7 +18,7 @@ const Login = () => {
     <button onClick={loginHandler} className='login-btn'>
       Login
     </button>
-    {isClicked&& <LoginModal/>}
+     <LoginModal isClosed={isClosed} onClose={onClose} />
     </>
 
   )
