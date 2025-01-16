@@ -28,7 +28,7 @@ const SignUp = () => {
         <label htmlFor='password'>Password:</label>
         <input type='password' id='password' value={password} onChange={(e)=> setPassword(e.target.value) } required></input>
       </div>
-      <button onClick={handleRegister}>Submit</button>
+      <button onClick={()=>handleRegister(email, password)}>Submit</button>
     </div>
   )
 }
