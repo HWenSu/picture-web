@@ -12,11 +12,24 @@ nav {
     }
      
     li {
-      padding: 0.5rem 1rem;
+      margin: auto 0;
+
       a {
         color: rgb(225, 229, 233);
         font-size: 1.25rem;
+        padding: 0 1rem;
       }
+    }
+    .login-btn {
+      border: #ffffff 1px solid ;
+      border-radius: 20px;
+      background-color: rgba(0, 0, 0, 0.578);
+      color: antiquewhite;
+      padding: 0.7rem;
+      font-size: 1rem;
+      margin: 0.6rem;
+      cursor:pointer;
+      position: relative;
     }
   }
 }
