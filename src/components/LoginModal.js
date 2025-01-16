@@ -1,4 +1,6 @@
 import React from 'react'
+import {  Link } from "react-router-dom";
+import SignUp from '../pages/SignUp'
 
 const LoginModal = () => {
   return (
@@ -6,16 +8,16 @@ const LoginModal = () => {
       <button className='close-btn'>X</button>
       <h3>Login</h3>
       <div className='login-input-area'>
-        <label for='account'>Account:</label>
+        <label htmlFor='account'>Account:</label>
         <input type='text' id='account' required></input>
       </div>
       <div className='login-input-area'>
-        <label for='password'>Password:</label>
+        <label htmlFor='password'>Password:</label>
         <input type='text' id='password' required></input>
       </div>
       <div>
         <p>Don’t you have an account? </p>
-        <button>SignUp</button>
+        <button><Link to="/sign-up">Sign Up</Link></button>
       </div>
     </div>
   )
