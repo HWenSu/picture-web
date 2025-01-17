@@ -217,4 +217,25 @@ nav ul .login-btn {
 }
 .login-container p {
   margin: 1rem 0;
+}
+
+.avatar-container {
+  all: unset;
+  display: flex;
+  margin: 0.4rem;
+}
+
+.avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: auto 0;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, filter 0.5s ease-in-out;
+}
+.avatar:hover {
+  filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.347));
+  transform: scale(1.1);
 }/*# sourceMappingURL=style.css.map */

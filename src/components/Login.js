@@ -1,11 +1,18 @@
 import React, {useState, useEffect} from 'react'
-import {  Link } from "react-router-dom";
+import {  Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from './firebase';
+import { useAuth } from '../context/AuthContext'
+
 
 //onClose為回調函示, 當關閉按鈕被點擊時, 觸發父組件onClose函式
-const Login = () => {
+const Login = ({onClose}) => {
+  
 
+  const {user} = useAuth()
+  const navigate = useNavigate()
+
+ 
   //獲取帳號密碼
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -18,8 +25,14 @@ const Login = () => {
       console.error("登入失敗:", error.message);
     }
   };
+
+  const handleSignUp = ()=> {
+    navigate('/sign-up')
+    onClose()
+  }
   
   return (
+    !user? (
     <div>
       <h3>Login</h3>
       <div className='login-input-area'>
@@ -33,9 +46,17 @@ const Login = () => {
       <button onClick={()=>handleLogin(email, password)}>Log in</button>
       <div>
         <p>Don’t you have an account? </p>
-        <Link to="/sign-up">Sign Up</Link>
+        <button onClick={handleSignUp}>
+          Sign Up
+        </button>
       </div>
-    </div>
+    </div>): (
+      <div>
+        <p>Welcome,</p>
+        <p>
+         {user.email}</p>
+      </div>
+    )
   )
 }
 

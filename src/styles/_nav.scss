@@ -6,6 +6,7 @@ nav {
     display: flex;
     justify-content: flex-end;
     margin-right: 2rem;
+    
     @media (max-width:$mobile){
       margin:0 auto;
       justify-content: center;
