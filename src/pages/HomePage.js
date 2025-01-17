@@ -4,6 +4,7 @@ import axios from "axios";
 import "wc-waterfall";
 import Waterfall from "../components/Waterfall";
 import { InView, useInView } from 'react-intersection-observer';
+import { set } from "lodash";
 
 
 const HomePage = () => {
@@ -11,6 +12,7 @@ const HomePage = () => {
   let [input, setInput] = useState('')
   let [page, setPage] = useState(1)
   let [currentSearch, setCurrentSearch] = useState('')
+  const [isLoading, setIsLoading] = useState(false);
   const auth = "IoVLB7zwZCxDGHkKwaEbO8saubpAcanF1RZzk69ehS7aKLc2JsD4P10P";
   const initialURL = "https://api.pexels.com/v1/curated?page=1&per_page=15";
   let searchURL = `https://api.pexels.com/v1/search?query=${input}&per_page=15&page=1`;
@@ -25,19 +27,32 @@ const HomePage = () => {
   };
 
   const morePicture = async() => {
+    if(isLoading) return
+    setIsLoading(true)
+    
+    let newPage = page +1
     let newURL
-    setPage(page+1)
     if (currentSearch === "") {
-      newURL = `https://api.pexels.com/v1/curated?page=${page}&per_page=15`;
+      newURL = `https://api.pexels.com/v1/curated?page=${newPage}&per_page=15`;
     } else {
       newURL = `https://api.pexels.com/v1/search?query=${currentSearch}&per_page=15&page=${
-        page + 1
+        newPage
       }`;
     }
     let result = await axios.get(newURL, {
       headers: { Authorization: auth },
     });
-    setData(data.concat(result.data.photos));
+    setPage(newPage)
+    setData((preData)=> {
+      const allData = [...preData, ...result.data.photos]
+      //去除重複資料
+      const filtedData = Array.from(
+        //用Array Set方式過濾掉重複id, 再從過濾完的id尋找該圖片資料
+        new Set(allData.map((item)=> item.id))).map((id)=> allData.find((item)=> item.id === id))
+        return filtedData
+      }
+      )
+    setIsLoading(false)
   }
     //Lazy Load
     const {ref, inView} = useInView({
@@ -45,7 +60,6 @@ const HomePage = () => {
       root: null,
       rootMargin: `0px 0px ${window.innerHeight}px 0px`,
       onChange: (inView, entry) => {
-          console.log('info', inView, entry.intersectionRatio);
           if (inView) {
             morePicture();
           }
@@ -60,7 +74,6 @@ const HomePage = () => {
    return data ? data.map((item) => item.src.large) : [];
  };
 
- console.log(data)
 
   return (
     <div style={{ minHeight: "100vh" }}>
@@ -81,7 +94,6 @@ const HomePage = () => {
               <Waterfall
                 imgURL={imgURL()}
                 data={data}
-                // cols={4}
                 width={window.innerWidth}
               />
             )}

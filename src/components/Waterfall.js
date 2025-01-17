@@ -70,7 +70,7 @@ const Waterfall = (props) => {
     //清除監聽器
     return () => window.removeEventListener("resize", handleResize)
     
-  },[data, cols, margin])
+  },[data])
 
   return (
     <div className="waterfall" style={{ width: 90 + "%", margin: "auto" }}>
@@ -87,21 +87,17 @@ const Waterfall = (props) => {
           {col.map((item, iIndex) => (
             <li
               className="waterfall-item"
-              key={item.src.large || iIndex}
+              key={item.id || iIndex}
               style={{
-                // height: item.displayHeight + "px",
                 marginBottom:" 1.7rem",
               }}
             >
-              {/* <div className="pictures"> */}
 
               <Picture
-                
                 data={item}
                 imgURL={item.src.large}
                 height={item.displayHeight}
               />
-              {/* </div> */}
             </li>
           ))}
         </ul>
