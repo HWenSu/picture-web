@@ -1,7 +1,7 @@
 import { Outlet, Link } from "react-router-dom";
 import React from 'react'
 import Footer from "./components/Footer";
-import Login from "./components/Login";
+import LoginBtn from "./components/LoginBtn";
 import './styles/style.css'
 
 const Layout = () => {
@@ -16,7 +16,7 @@ const Layout = () => {
             <Link to="/portfolio">Portfolio</Link>
           </li>
           <li>
-            <Login/>
+            <LoginBtn/>
           </li>
         </ul>
       </nav>
