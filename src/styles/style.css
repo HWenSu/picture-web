@@ -153,6 +153,51 @@ nav ul .login-btn {
   min-height: 10vh;
 }
 
+.picture-modal-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  z-index: 999;
+  width: 100vw;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.589);
+  -webkit-backdrop-filter: blur(3px);
+          backdrop-filter: blur(3px);
+}
+.picture-modal-container .picture-info-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  width: 60rem;
+  margin: 10vh auto;
+  border-radius: 30px;
+  background-color: rgb(255, 255, 255);
+  overflow-y: scroll;
+}
+.picture-modal-container .picture-info-container .picture-section {
+  width: 30rem;
+  height: 28rem;
+  display: flex;
+  justify-content: center;
+}
+.picture-modal-container .picture-info-container .picture-section img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.picture-modal-container .picture-info-container .info-container {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.148);
+  flex: 1;
+  height: 28rem;
+}
+.picture-modal-container p {
+  font-size: 2rem;
+  color: rgb(19, 19, 19);
+}
+
 .picture .imageContainer {
   overflow: hidden;
   border-radius: 20px;
@@ -166,6 +211,12 @@ nav ul .login-btn {
 }
 .picture .imageContainer img:hover {
   transform: scale(1.25);
+}
+.picture .picture-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
 }
 .picture .photographer {
   margin: 0.5rem 1rem;
@@ -238,4 +289,89 @@ nav ul .login-btn {
 .avatar:hover {
   filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.347));
   transform: scale(1.1);
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 3rem;
+  height: 3rem;
+  background-color: #f0f0f0;
+  border: 1px solid rgba(134, 134, 134, 0.145);
+  color: rgba(137, 137, 137, 0.85);
+  border-radius: 50px;
+  font-size: 1.2rem;
+}
+.close-btn:hover {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
+}
+.close-btn:hover {
+  transform: translateY(-1px);
+}
+
+.main-button {
+  all: unset;
+  width: 100px;
+  height: 30px;
+  background: transparent;
+  border: none;
+  position: relative;
+  color: #f0f0f0;
+  cursor: pointer;
+  z-index: 1;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  -moz-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.main-button ::after, .main-button ::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -99999;
+  transition: all 0.3s ease-in-out;
+}
+.main-button ::before {
+  transform: translate(0%, 0%);
+  width: 100%;
+  height: 100%;
+  background: #424246;
+  border-radius: 10px;
+}
+.main-button ::after {
+  transform: translate(10px, 10px);
+  width: 35px;
+  height: 35px;
+  background: rgba(255, 255, 255, 0.0823529412);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 50px;
+}
+.main-button:hover ::before {
+  transform: translate(5%, 20%);
+  width: 110%;
+  height: 110%;
+  background: #2c2c2d;
+}
+.main-button:hover ::after {
+  border-radius: 10px;
+  transform: translate(0, 0);
+  width: 100%;
+  height: 100%;
+}
+.main-button:active::after {
+  transition: 0s;
+  transform: translate(0, 5%);
+}
+.main-button a {
+  color: #dfdfdf;
 }/*# sourceMappingURL=style.css.map */
