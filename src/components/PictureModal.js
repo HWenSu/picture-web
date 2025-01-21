@@ -1,7 +1,8 @@
 import { useAuth } from "../context/AuthContext"
 import { useState, useEffect } from "react"
+import Collect from "./Collect"
 
-const PictureModal = ( { src, alt, photographer, photographer_url, url, handlePicture } ) => {
+const PictureModal = ( { data, src, alt, photographer, photographer_url, url, handlePicture, isFavorite } ) => {
   const {user} = useAuth()
   const [isClosed, setIsClosed]=useState(false)
 
@@ -12,7 +13,7 @@ const PictureModal = ( { src, alt, photographer, photographer_url, url, handlePi
 
   return (
     !isClosed? (
-    <div className="picture-modal-container" onClick={handleClose}>
+    <div className="picture-modal-container">
       <div className="picture-info-container">
       <button className="close-btn" onClick={handleClose}>X</button>
       <section className="picture-section">
@@ -29,7 +30,7 @@ const PictureModal = ( { src, alt, photographer, photographer_url, url, handlePi
           </a>
         </button>
         <div>
-
+          <Collect isFavorite={isFavorite} />
         </div>
         
       </section>

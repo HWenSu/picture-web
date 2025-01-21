@@ -3,6 +3,7 @@ import React from 'react'
 import Footer from "./components/Footer";
 import LoginBtn from "./components/LoginBtn";
 import './styles/style.css'
+import Favorite from "./pages/Favorite";
 
 const Layout = () => {
   return (
@@ -16,8 +17,12 @@ const Layout = () => {
             <Link to="/portfolio">Portfolio</Link>
           </li>
           <li>
+          <Link to="/favorite">Favorite</Link>
+          </li>
+          <li>
             <LoginBtn/>
           </li>
+
         </ul>
       </nav>
       <Outlet />

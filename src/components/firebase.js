@@ -17,9 +17,14 @@ const firebaseConfig = {
   measurementId: "G-KQ0B26ZT1C"
 };
 
-const iapp = initializeApp(firebaseConfig);
-const db = getFirestore(iapp);
 
+// 初始化身份驗證
+const app = initializeApp(firebaseConfig);
+//導出
+export const db = getFirestore(app);
+export const auth = getAuth(app);
+
+//測試寫入功能
 const testFirestore = async () => {
   try {
     await setDoc(doc(db, "testCollection", "testDoc"), {
@@ -33,10 +38,3 @@ const testFirestore = async () => {
 };
 
 testFirestore();
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-// 初始化身份驗證
-export const auth = getAuth(app);
-
-

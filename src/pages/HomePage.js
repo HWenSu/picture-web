@@ -4,20 +4,26 @@ import axios from "axios";
 import "wc-waterfall";
 import Waterfall from "../components/Waterfall";
 import { InView, useInView } from 'react-intersection-observer';
-import { set } from "lodash";
+import { useAuth } from "../context/AuthContext";
+
 
 
 const HomePage = () => {
-  let [data, setData] = useState([]);
-  let [input, setInput] = useState('')
-  let [page, setPage] = useState(1)
-  let [currentSearch, setCurrentSearch] = useState('')
+  const [data, setData] = useState([]);
+  const [input, setInput] = useState('')
+  const [page, setPage] = useState(1)
+  const [currentSearch, setCurrentSearch] = useState('')
   const [isLoading, setIsLoading] = useState(false);
+  const [favorites, setFavorites] = useState([])
+  const {user} = useAuth()
   const auth = "IoVLB7zwZCxDGHkKwaEbO8saubpAcanF1RZzk69ehS7aKLc2JsD4P10P";
   const initialURL = "https://api.pexels.com/v1/curated?page=1&per_page=15";
   let searchURL = `https://api.pexels.com/v1/search?query=${input}&per_page=15&page=1`;
-
   
+  useEffect(() => {
+    search(initialURL);
+  }, []);
+
 //取得Search API
   const search = async (url) => {
     let result = await axios.get(url, {
@@ -66,10 +72,6 @@ const HomePage = () => {
       }
     })  
 
-      useEffect(() => {
-        search(initialURL);
-      }, []);
-
  const imgURL = () => {
    return data ? data.map((item) => item.src.large) : [];
  };
@@ -87,7 +89,6 @@ const HomePage = () => {
         setInput={setInput}
       />
       {
-
         <div>
           <div>
             {data && (
