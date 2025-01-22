@@ -19,7 +19,9 @@ const Favorite = () => {
       setFavorites(querySnapshot.docs.map((doc)=>doc.data()))
     }
     fetchFavorites()
-  }, [user])// 當 user 初始化完成後，重新執行 useEffect
+  }, [user,favorites])// 當 user 初始化完成後，重新執行 useEffect
+
+
 
 
   return (

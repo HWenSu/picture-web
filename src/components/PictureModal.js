@@ -2,7 +2,7 @@ import { useAuth } from "../context/AuthContext"
 import { useState, useEffect } from "react"
 import Collect from "./Collect"
 
-const PictureModal = ( { data, src, alt, photographer, photographer_url, url, handlePicture, isFavorite } ) => {
+const PictureModal = ( { data, src, alt, photographer, photographer_url, url, handlePicture, isFavorite, onFavoriteChange } ) => {
   const {user} = useAuth()
   const [isClosed, setIsClosed]=useState(false)
 
@@ -30,7 +30,7 @@ const PictureModal = ( { data, src, alt, photographer, photographer_url, url, ha
           </a>
         </button>
         <div>
-          <Collect isFavorite={isFavorite} />
+          <Collect isFavorite={isFavorite} onFavoriteChange={onFavoriteChange} />
         </div>
         
       </section>

@@ -20,6 +20,7 @@ const Picture = ({ data, imgURL, height }) => {
     //初始化收藏數據
     const loadFavorites = async () => {
       if(!user){
+        setFavorites([]); // 如果未登入，清空收藏數據
         return
       }
      try {
@@ -35,6 +36,14 @@ const Picture = ({ data, imgURL, height }) => {
 
   //確認是data.id是否在收藏數據中
   const isFavorite = favorites.includes(data.id)
+
+  // 收藏狀態變化的回調函數
+  const handleFavoriteChange = (id, isFavorited) => {
+  setFavorites((prevFavorites) =>
+    isFavorited? 
+      [...prevFavorites, id] // 新增收藏
+      : prevFavorites.filter((favId) => favId !== id) // 移除收藏
+    )};
 
   return (
     <div className="picture">
@@ -56,8 +65,11 @@ const Picture = ({ data, imgURL, height }) => {
       photographer_url={data.photographer_url}
       handlePicture={handlePicture}
       isFavorite={isFavorite}
+      onFavoriteChange={handleFavoriteChange} 
       />}
-      <Collect data={data} isFavorite={isFavorite} />
+      <Collect data={data} 
+      isFavorite={isFavorite} 
+      onFavoriteChange={handleFavoriteChange} />
     </div>
   )
 };
