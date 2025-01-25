@@ -1,5 +1,8 @@
 $mobile: 768px;
 .picture{
+  .picture-btn-container{
+    position: relative;
+  }
   .imageContainer {
     position: relative;
     overflow: hidden;
@@ -21,6 +24,9 @@ $mobile: 768px;
     border: none;
     padding: 0;
     cursor: pointer;
+      &:hover {
+        filter: brightness(0.6); /* 直接改變容器內元素的亮度 */
+      }
   }
 
   .photographer{

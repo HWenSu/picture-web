@@ -89,18 +89,41 @@
     }
 }
 
-.common-icon-container{
-  opacity: 0;
+.picture-btn-container{
+  position: relative; 
+
+.heart-btn,
+.download-btn,
+.share-btn {
+  opacity: 0; /* 初始狀態隱藏按鈕 */
+  visibility: hidden; /* 防止隱藏按鈕仍然可以被點擊 */
+  transition: opacity 0.3s ease, visibility 0.3s ease; /* 平滑過渡效果 */
   position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  bottom: 0;
-  &:hover{
-  backdrop-filter: brightness(0.7); /* 直接改變容器內元素的亮度 */
-  opacity: 1;
-  transition: 0.3s ease-in-out;
+}
+
+.heart-btn{
+  top: 10px;
+  right: 10px;
+}
+
+.download-btn{
+  bottom: 35px;
+  left: 10px;
+}
+
+.share-btn{
+  bottom: 35px;
+  left: 70px;
+}
+
+&:hover {
+  .heart-btn,
+  .download-btn,
+  .share-btn {
+    opacity: 1; /* 顯示按鈕 */
+    visibility: visible; /* 確保按鈕可點擊 */
   }
+}
 }
 
 .common-icon{
@@ -125,16 +148,4 @@
     background: #b41919f5;
     transition: 0.3s ease-in-out;
     }
-}
-
-.heart-btn{
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-
-.download-btn{
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
 }

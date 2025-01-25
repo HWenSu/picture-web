@@ -201,6 +201,9 @@ nav ul .login-btn {
   color: rgb(19, 19, 19);
 }
 
+.picture .picture-btn-container {
+  position: relative;
+}
 .picture .imageContainer {
   position: relative;
   overflow: hidden;
@@ -222,6 +225,9 @@ nav ul .login-btn {
   border: none;
   padding: 0;
   cursor: pointer;
+}
+.picture .picture-btn:hover {
+  filter: brightness(0.6); /* 直接改變容器內元素的亮度 */
 }
 .picture .photographer {
   margin: 0.5rem 1rem;
@@ -381,19 +387,34 @@ nav ul .login-btn {
   color: #dfdfdf;
 }
 
-.common-icon-container {
-  opacity: 0;
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  bottom: 0;
+.picture-btn-container {
+  position: relative;
 }
-.common-icon-container:hover {
-  -webkit-backdrop-filter: brightness(0.7);
-          backdrop-filter: brightness(0.7); /* 直接改變容器內元素的亮度 */
-  opacity: 1;
-  transition: 0.3s ease-in-out;
+.picture-btn-container .heart-btn,
+.picture-btn-container .download-btn,
+.picture-btn-container .share-btn {
+  opacity: 0; /* 初始狀態隱藏按鈕 */
+  visibility: hidden; /* 防止隱藏按鈕仍然可以被點擊 */
+  transition: opacity 0.3s ease, visibility 0.3s ease; /* 平滑過渡效果 */
+  position: absolute;
+}
+.picture-btn-container .heart-btn {
+  top: 10px;
+  right: 10px;
+}
+.picture-btn-container .download-btn {
+  bottom: 35px;
+  left: 10px;
+}
+.picture-btn-container .share-btn {
+  bottom: 35px;
+  left: 70px;
+}
+.picture-btn-container:hover .heart-btn,
+.picture-btn-container:hover .download-btn,
+.picture-btn-container:hover .share-btn {
+  opacity: 1; /* 顯示按鈕 */
+  visibility: visible; /* 確保按鈕可點擊 */
 }
 
 .common-icon {
@@ -418,18 +439,6 @@ nav ul .login-btn {
 .heart:hover {
   background: rgba(180, 25, 25, 0.9607843137);
   transition: 0.3s ease-in-out;
-}
-
-.heart-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-}
-
-.download-btn {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
 }
 
 /* reset.scss */
