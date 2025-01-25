@@ -403,11 +403,11 @@ nav ul .login-btn {
   right: 10px;
 }
 .picture-btn-container .download-btn {
-  bottom: 35px;
+  bottom: 10px;
   left: 10px;
 }
 .picture-btn-container .share-btn {
-  bottom: 35px;
+  bottom: 10px;
   left: 70px;
 }
 .picture-btn-container:hover .heart-btn,
@@ -439,6 +439,52 @@ nav ul .login-btn {
 .heart:hover {
   background: rgba(180, 25, 25, 0.9607843137);
   transition: 0.3s ease-in-out;
+}
+
+.share-modal-bg {
+  z-index: 100;
+  position: fixed;
+  display: flex;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(44, 44, 45, 0.3450980392);
+}
+
+.share-modal-container {
+  z-index: 200;
+  position: absolute;
+  top: 60%;
+  border-radius: 20px;
+  display: grid;
+  grid-auto-flow: column; /* 將所有按鈕排成一列橫排 */
+  justify-content: center;
+  background-color: #ffffff;
+  padding: 0 1rem;
+  max-width: calc(100vw - 20px); /* 限制最大寬度，避免超出右邊界 */
+}
+.share-modal-container button {
+  all: unset;
+  font-size: 14px;
+  margin: 0.4rem;
+  padding: 0.7rem 0.4rem;
+  cursor: pointer;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 20px;
+}
+.share-modal-container button:hover {
+  filter: brightness(0.95);
+}
+.share-modal-container button img {
+  width: 3rem;
+  background-color: #ffffff;
+}
+.share-modal-container button svg {
+  width: 3rem;
+  height: 3rem;
+  padding: 0.3rem;
 }
 
 /* reset.scss */

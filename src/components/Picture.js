@@ -51,13 +51,11 @@ const Picture = ({ data, imgURL, height,  isRenderHeartIcon}) => {
     <div className="picture">
       <div className='picture-btn-container'>
         <div className='picture-btn' onClick={handlePicture}>
-      <div className="imageContainer" style={{ height: height + "px" }}>
-        <img src={imgURL} alt={data.alt || "Image"} />
-        <a target="_blank" href={imgURL} rel="noreferrer"></a>
-      </div>
-      <p className="photographer">{data.photographer}</p>
+          <div className="imageContainer" style={{ height: height + "px" }}>
+          <img src={imgURL} alt={data.alt || "Image"} />
+          <a target="_blank" href={imgURL} rel="noreferrer"></a>
+          </div>      
         </div>
-        
           {/* 收藏組件 */}
           {isRenderHeartIcon&&
           <div className='heart-btn'>
@@ -72,10 +70,11 @@ const Picture = ({ data, imgURL, height,  isRenderHeartIcon}) => {
               <DownloadImage imgURL={imgURL} fileName={data.id} />
           </div>
           {/* 分享組件 */}
-          <div className='share-btn'>
-            <ShareURL className=""/>
+          <div>
+            <ShareURL/>
           </div>
       </div>
+      <p className="photographer">{data.photographer}</p>
 
       {/* 是否打開圖片彈出窗 */}
       {isPictureModal&& 
