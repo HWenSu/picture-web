@@ -90,12 +90,11 @@ const UploadComponent = () => {
   const vailImg = (selected) => {
     return selected.filter((img) => img?.src?.large)
   }
-  // console.log(vailImg(selected))
   
   return (
     <div>
       <input type="file" accept='image/*' multiple onChange={handleFileChange}/>
-      {selected && <Waterfall data={vailImg(selected)} width={window.innerWidth} /> }
+      {selected && <Waterfall data={vailImg(selected)} width={window.innerWidth} isRenderHeartIcon={false} /> }
       <div className="load" ref={ref}>
       </div>
     </div>

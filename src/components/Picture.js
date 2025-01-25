@@ -1,11 +1,12 @@
 import {useState, useEffect} from 'react'
 import PictureModal from './PictureModal';
 import Collect from './Collect';
+import DownloadImage from './DownloadImage';
 import { useAuth } from '../context/AuthContext';
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../components/firebase";
 
-const Picture = ({ data, imgURL, height }) => {
+const Picture = ({ data, imgURL, height,  isRenderHeartIcon}) => {
 
 
   const {user}=useAuth()
@@ -51,6 +52,22 @@ const Picture = ({ data, imgURL, height }) => {
       <div className="imageContainer" style={{ height: height + "px" }}>
         <img src={imgURL} alt={data.alt || "Image"} />
         <a target="_blank" href={imgURL} rel="noreferrer"></a>
+        <div className='common-icon-container'>
+        {/* 收藏組件 */}
+        {isRenderHeartIcon&&
+        <div className='heart-btn'>
+          <Collect 
+          data={data} 
+          isFavorite={isFavorite} 
+          onFavoriteChange={handleFavoriteChange} />
+        </div>
+        }
+
+       {/* 下載組件 */}
+       <div className='download-btn'>
+        <DownloadImage imgURL={imgURL} fileName={data.id} />
+       </div>
+      </div>
       </div>
       <p className="photographer">{data.photographer}</p>
       </div>
@@ -67,9 +84,7 @@ const Picture = ({ data, imgURL, height }) => {
       isFavorite={isFavorite}
       onFavoriteChange={handleFavoriteChange} 
       />}
-      <Collect data={data} 
-      isFavorite={isFavorite} 
-      onFavoriteChange={handleFavoriteChange} />
+      
     </div>
   )
 };

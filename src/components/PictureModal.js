@@ -30,7 +30,7 @@ const PictureModal = ( { data, src, alt, photographer, photographer_url, url, ha
           </a>
         </button>
         <div>
-          <Collect isFavorite={isFavorite} onFavoriteChange={onFavoriteChange} />
+          <Collect data={data} isFavorite={isFavorite} onFavoriteChange={onFavoriteChange} />
         </div>
         
       </section>

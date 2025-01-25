@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Picture from "../components/Picture";
 
 //分配瀑布流每一列的函式
-const allocateItem = (data, cols, colWidth) => {
+const allocateItem = (data, cols, colWidth ) => {
   //儲存每列瀑布流的內容
   const arr = []
   //儲存每列瀑布流的高度
@@ -43,7 +43,7 @@ const allocateItem = (data, cols, colWidth) => {
   
 
 const Waterfall = (props) => {
-  const { data = [], margin = 40, imgURL } = props;
+  const { data = [], margin = 40, isRenderHeartIcon } = props;
   const [width, setWidth] = useState(window.innerWidth) //視窗寬度
   // const defaultColWidth = (width - (cols - 1) * margin) / cols;  
   const [cols, setCols] = useState(4)
@@ -97,6 +97,7 @@ const Waterfall = (props) => {
                 data={item}
                 imgURL={item.src.large}
                 height={item.displayHeight}
+                isRenderHeartIcon={isRenderHeartIcon}
               />
             </li>
           ))}

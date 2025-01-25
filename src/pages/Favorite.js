@@ -15,11 +15,10 @@ const Favorite = () => {
       }
     const fetchFavorites = async ()=> {
       const querySnapshot = await getDocs(collection(db,`users/${user.uid}/favorites`))
-      console.log(querySnapshot.docs, user.uid)
       setFavorites(querySnapshot.docs.map((doc)=>doc.data()))
     }
     fetchFavorites()
-  }, [user,favorites])// 當 user 初始化完成後，重新執行 useEffect
+  }, [user])// 當 user 初始化完成後，重新執行 useEffect
 
 
 
@@ -30,6 +29,7 @@ const Favorite = () => {
       // imgURL={imgURL()}
       data={favorites}
       width={window.innerWidth}
+      isRenderHeartIcon={true}
       />
   </div>
   )
