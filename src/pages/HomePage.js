@@ -1,27 +1,28 @@
 import React, { useState, useEffect } from "react";
 import Search from "./Search";
+import Tags from "../components/Tags";
 import axios from "axios";
 import "wc-waterfall";
 import Waterfall from "../components/Waterfall";
 import { InView, useInView } from 'react-intersection-observer';
-import { useAuth } from "../context/AuthContext";
 
 
 
 const HomePage = () => {
   const [data, setData] = useState([]);
   const [input, setInput] = useState('')
+  const [selectedTag, setSelectedTag] = useState(null)
   const [page, setPage] = useState(1)
   const [currentSearch, setCurrentSearch] = useState('')
   const [isLoading, setIsLoading] = useState(false);
-  const [favorites, setFavorites] = useState([])
-  const {user} = useAuth()
   const auth = "IoVLB7zwZCxDGHkKwaEbO8saubpAcanF1RZzk69ehS7aKLc2JsD4P10P";
   const initialURL = "https://api.pexels.com/v1/curated?page=1&per_page=15";
   let searchURL = `https://api.pexels.com/v1/search?query=${input}&per_page=15&page=1`;
   
   useEffect(() => {
-    search(initialURL);
+    if(!currentSearch){
+      search(initialURL);
+    }
   }, []);
 
 //取得Search API
@@ -76,18 +77,31 @@ const HomePage = () => {
    return data ? data.map((item) => item.src.large) : [];
  };
 
+ console.log(selectedTag)
+ console.log(input)
 
   return (
     <div style={{ minHeight: "100vh" }}>
       <Search
         search={() => {
           if (input.trim() !== "") {
+            setSelectedTag('')
             search(searchURL);
             setCurrentSearch(input);
           }
         }}
-        setInput={setInput}
+        setInput={(value)=>{
+          setInput(value)
+          setSelectedTag(null)
+        } }
+        input={input}
       />
+      <Tags 
+        setTag={(tag) => {
+          setSelectedTag(tag)
+          setInput(tag)
+        }}
+        setInput={setInput}/>
       {
         <div>
           <div>

@@ -1,6 +1,6 @@
 import {useEffect, useRef} from 'react'
 
-const Search = ({search, setInput}) => {
+const Search = ({search, setInput, input}) => {
   // 用於引用搜尋欄
   const searchbarRef = useRef(null)
   // 使用 useRef 保留滾動位置
@@ -13,7 +13,7 @@ const Search = ({search, setInput}) => {
 
     const currentScroll = window.scrollY
 
-    //滾動向下時隱藏導航欄
+  //滾動向下時隱藏導航欄
   if(currentScroll > lastScrollTop.current) {
     searchbar.style.transform = 'translateY(-100%)'
   } else {
@@ -31,19 +31,12 @@ const Search = ({search, setInput}) => {
   };
   }, [])
 
-
-  const inputHandler = (e) => {
-    if (e.target.value) {
-      setInput(e.target.value);
-    }
-  }
-
   return (
     <div 
     className='search' 
     ref={searchbarRef}  // 將 DOM 元素綁定到 useRef
     >
-      <input className='input' onChange={inputHandler} type="text" />
+      <input className='input' onChange={(e)=> setInput(e.target.value)} type="text" value={input}/>
       <button onClick={search}>
         <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
           <path stroke="currentColor" strokeLinecap="round" strokeWidth="2" d="m21 21-3.5-3.5M17 10a7 7 0 1 1-14 0 7 7 0 0 1 14 0Z"/>
