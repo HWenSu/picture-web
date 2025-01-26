@@ -87,13 +87,19 @@ nav ul .login-btn {
 .search {
   width: 100%;
   display: flex;
+  position: sticky;
+  top: 0; /* 固定在頂部 */
+  z-index: 1000; /* 確保搜尋欄在內容上方 */
   background-color: rgba(45, 45, 45, 0.4352941176);
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
   justify-content: center;
   align-items: center;
-  padding: 1.5rem 0rem;
+  padding: 0.9rem 0rem;
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
   margin-bottom: 2rem;
+  transition: transform 0.4s ease-in-out;
 }
 @media (max-width: 768px) {
   .search {
@@ -102,17 +108,18 @@ nav ul .login-btn {
 }
 .search input,
 .search button {
-  padding: 1rem;
-  margin-right: 0.25rem;
+  all: unset;
+  padding: 0.5rem;
+  margin-right: 1.2rem;
   border-radius: 30px;
-  border: 2px solid rgb(100, 100, 100);
+  background-color: #f3eaea;
 }
 .search input {
-  width: 30vw;
+  width: 28vw;
 }
 .search input:focus {
   color: #2f2f2f;
-  border: 3px solid rgb(48, 48, 48);
+  border: 2px solid rgb(48, 48, 48);
   outline: none;
 }
 @media (max-width: 768px) {
@@ -123,8 +130,8 @@ nav ul .login-btn {
   }
 }
 .search button {
-  padding: 1rem 1.2rem;
-  font-size: 1.2rem;
+  width: 1.8rem;
+  text-align: center;
   border: none;
   color: #f3eaea;
   background-color: rgb(43, 43, 43);
@@ -133,9 +140,8 @@ nav ul .login-btn {
   transition: all 0.3s ease;
 }
 .search button:hover {
-  background-color: rgb(230, 230, 230);
-  color: #2f2f2f;
-  box-shadow: rgba(198, 198, 205, 0.25) 0px 30px 60px -12px inset, rgba(134, 134, 134, 0.3) 0px 18px 36px -18px inset;
+  background-color: rgb(73, 73, 73);
+  transform: scale(1.05);
 }
 @media (max-width: 768px) {
   .search button {

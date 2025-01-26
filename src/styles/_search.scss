@@ -2,28 +2,34 @@ $mobile: 768px;
 .search {
   width: 100%;
   display: flex;
+  position: sticky;
+  top: 0; /* 固定在頂部 */
+  z-index: 1000; /* 確保搜尋欄在內容上方 */
   background-color: #2d2d2d6f;
+  backdrop-filter: blur(2px);
   justify-content: center;
   align-items: center;
-  padding: 1.5rem 0rem;
+  padding: 0.9rem 0rem;
   backdrop-filter: blur(5px);
   margin-bottom: 2rem;
+  transition: transform 0.4s ease-in-out;
   @media(max-width:$mobile){
     padding: 0.8rem 0rem;
   }
 
   input,
   button {
-    padding: 1rem;
-    margin-right: 0.25rem;
+    all: unset;
+    padding: 0.5rem;
+    margin-right: 1.2rem;
     border-radius: 30px;
-    border: 2px solid rgb(100, 100, 100);
+    background-color: #f3eaea;
   }
     input{
-      width: 30vw;
+      width: 28vw;
       &:focus{
         color: #2f2f2f;
-        border: 3px solid rgb(48, 48, 48);
+        border: 2px solid rgb(48, 48, 48);
         outline: none;
       }
       @media(max-width:$mobile){
@@ -33,8 +39,8 @@ $mobile: 768px;
       }  
     }
     button {
-    padding: 1rem 1.2rem;
-    font-size: 1.2rem;
+    width: 1.8rem;
+    text-align: center;
     border: none;
     color: #f3eaea;
     background-color: rgb(43, 43, 43);
@@ -42,9 +48,8 @@ $mobile: 768px;
     cursor: pointer;
     transition: all 0.3s ease;
       &:hover {
-          background-color: rgb(230, 230, 230);
-          color: #2f2f2f;
-          box-shadow: rgba(198, 198, 205, 0.25) 0px 30px 60px -12px inset, rgba(134, 134, 134, 0.3) 0px 18px 36px -18px inset;
+          background-color: rgb(73, 73, 73);
+          transform: (scale(1.05));
         }
 
         @media(max-width:$mobile){
