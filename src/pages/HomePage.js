@@ -77,8 +77,6 @@ const HomePage = () => {
    return data ? data.map((item) => item.src.large) : [];
  };
 
- console.log(selectedTag)
- console.log(input)
 
   return (
     <div style={{ minHeight: "100vh" }}>
@@ -101,7 +99,7 @@ const HomePage = () => {
           setSelectedTag(tag)
           setInput(tag)
         }}
-        setInput={setInput}/>
+        />
       {
         <div>
           <div>

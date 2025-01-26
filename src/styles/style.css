@@ -493,6 +493,12 @@ nav ul .login-btn {
   padding: 0.3rem;
 }
 
+.color-btn {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+}
+
 /* reset.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
