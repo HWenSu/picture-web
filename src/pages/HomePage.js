@@ -4,7 +4,7 @@ import Tags from "../components/Tags";
 import axios from "axios";
 import "wc-waterfall";
 import Waterfall from "../components/Waterfall";
-import { InView, useInView } from 'react-intersection-observer';
+import { useInView } from 'react-intersection-observer';
 
 
 
@@ -17,7 +17,6 @@ const HomePage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const auth = "IoVLB7zwZCxDGHkKwaEbO8saubpAcanF1RZzk69ehS7aKLc2JsD4P10P";
   const initialURL = "https://api.pexels.com/v1/curated?page=1&per_page=15";
-  let searchURL = `https://api.pexels.com/v1/search?query=${input}&per_page=15&page=1`;
   
   useEffect(() => {
     if(!currentSearch){
@@ -77,6 +76,9 @@ const HomePage = () => {
    return data ? data.map((item) => item.src.large) : [];
  };
 
+ const generateSearchURL = (query, page = 1) =>
+  `https://api.pexels.com/v1/search?query=${query.trim()}&per_page=15&page=${page}`;
+
 
   return (
     <div style={{ minHeight: "100vh" }}>
@@ -84,8 +86,10 @@ const HomePage = () => {
         search={() => {
           if (input.trim() !== "") {
             setSelectedTag('')
-            search(searchURL);
             setCurrentSearch(input);
+            // 使用動態生成的 URL
+            const dynamicSearchURL = generateSearchURL(input);
+            search(dynamicSearchURL);
           }
         }}
         setInput={(value)=>{
@@ -98,6 +102,10 @@ const HomePage = () => {
         setTag={(tag) => {
           setSelectedTag(tag)
           setInput(tag)
+          // 動態生成 URL
+          if(tag.trim() !== ""){
+          const dynamicSearchURL = generateSearchURL(tag);
+          search(dynamicSearchURL)} 
         }}
         />
       {
