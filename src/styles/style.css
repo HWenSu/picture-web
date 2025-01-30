@@ -112,7 +112,7 @@ nav ul .login-btn {
   padding: 0.5rem;
   margin-right: 1.2rem;
   border-radius: 30px;
-  background-color: #f3eaea;
+  background-color: #eeeeee;
 }
 .search input {
   width: 28vw;
@@ -550,4 +550,28 @@ q:before, q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+
+.tag-container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+}
+.tag-container button {
+  all: unset;
+  padding: 1rem;
+  cursor: pointer;
+  background-color: rgba(242, 242, 242, 0.7);
+  border-radius: 33px;
+}
+.tag-container button:hover {
+  background-color: rgb(232, 232, 232);
+  transition: 0.3s ease-in-out;
+}
+.tag-container .color-platte-tag-container .color-platte-container {
+  display: flex;
+}
+.tag-container .color-platte-tag-container .color-platte-container .color-btn {
+  padding: 0.7rem;
+  margin: 0.2rem;
 }/*# sourceMappingURL=style.css.map */

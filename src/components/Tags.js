@@ -7,7 +7,7 @@ const Tags = ({setTag}) => {
   const tags = [
     "Nature", 'Cats', 'Ocean', 'Technology', 'Fashion'
   ]
-  
+
   const handleTagClick = (tag, color) => {
     setTag(`${tag} ${color}`)
   }
@@ -23,20 +23,22 @@ const Tags = ({setTag}) => {
   }
 
   return (
-    <div>
+    <div className="tag-container">
         {tags.map((tag)=> {
           return <button 
             onClick={()=>{
               handleTagClick(tag, color)
               setCurrentTag(tag)
               }} // 點擊標籤更新選中的標籤
-            key={tag}>
+            key={tag}
+            className="tag-btn"
+            >
               {tag}
             </button>
           })}
-          <div>
+          <div className="color-platte-tag-container">
             Color Platte
-            <div onClick={()=>handleTagClick(currentTag, color)}>
+            <div onClick={()=>handleTagClick(currentTag, color)} >
               <ColorPlatte 
               setSelectedColor={(color)=>setColor(color)}
               />

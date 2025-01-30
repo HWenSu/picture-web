@@ -17,15 +17,15 @@ const ColorPlatte = ({setSelectedColor}) => {
   ]; 
 
   return (
-    <div>
+    <div className='color-platte-container'>
       { colors.map((color)=>{
-        return <button 
+        return <div 
           className='color-btn'
           key={color.hex}
           onClick={()=>setSelectedColor(color.name)}
           style={{backgroundColor:`${color.hex}`}}
           >
-        </button>
+        </div>
       })
 
       }

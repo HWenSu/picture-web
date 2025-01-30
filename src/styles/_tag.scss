@@ -1,0 +1,26 @@
+.tag-container{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 2rem;
+  button{
+    all:unset;
+    padding: 1rem;
+    cursor: pointer;
+    background-color: rgba(242, 242, 242, 0.7);
+    border-radius: 33px;
+    &:hover{
+      background-color: rgb(232, 232, 232);
+      transition: 0.3s ease-in-out;
+    }
+  }
+
+  .color-platte-tag-container{
+    .color-platte-container{
+      display: flex;
+      .color-btn{
+        padding: 0.7rem;
+        margin: 0.2rem;
+      }
+    }
+  }
+}
