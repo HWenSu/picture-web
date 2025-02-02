@@ -6,7 +6,9 @@
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: e3e3e3;
 }
 
 a {
@@ -50,9 +52,6 @@ ul {
   box-shadow: rgba(198, 198, 205, 0.25) 0px 30px 60px -12px inset, rgba(134, 134, 134, 0.3) 0px 18px 36px -18px inset;
 }
 
-nav {
-  background-color: rgb(52, 52, 52);
-}
 nav ul {
   display: flex;
   justify-content: flex-end;
@@ -89,7 +88,7 @@ nav ul .login-btn {
   display: flex;
   position: sticky;
   top: 0; /* 固定在頂部 */
-  z-index: 1000; /* 確保搜尋欄在內容上方 */
+  z-index: 999; /* 確保搜尋欄在內容上方 */
   background-color: rgba(45, 45, 45, 0.4352941176);
   -webkit-backdrop-filter: blur(2px);
           backdrop-filter: blur(2px);
@@ -165,7 +164,7 @@ nav ul .login-btn {
   top: 0;
   right: 0;
   display: flex;
-  z-index: 999;
+  z-index: 1000;
   width: 100vw;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.589);
@@ -574,4 +573,73 @@ table {
 .tag-container .color-platte-tag-container .color-platte-container .color-btn {
   padding: 0.7rem;
   margin: 0.2rem;
+}
+
+.Landing-page-container {
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(255, 255, 255);
+  font-family: "Aldrich", serif;
+  text-transform: uppercase;
+}
+.Landing-page-container nav, .Landing-page-container footer {
+  position: absolute;
+  padding: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.Landing-page-container footer {
+  bottom: 0;
+}
+.Landing-page-container nav > div, .Landing-page-container footer > div {
+  padding: 3rem;
+  cursor: pointer;
+}
+.Landing-page-container .header {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  pointer-events: none;
+}
+.Landing-page-container .header p {
+  text-align: center;
+  font-size: 12px;
+}
+.Landing-page-container .header .placeholder {
+  text-align: center;
+  font-size: 80px;
+  line-height: 2.25;
+}
+.Landing-page-container .header .alert-animation {
+  position: absolute;
+  left: 50%;
+  bottom: -50%;
+  transform: translate(-50%, -50%);
+  width: 18vw;
+  color: #fff;
+  background-color: #000;
+  border-radius: 30px;
+  padding: 1rem;
+}
+
+.cursor {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: #000;
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  color: #000;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cursor p {
+  font-size: 0.7rem;
 }/*# sourceMappingURL=style.css.map */

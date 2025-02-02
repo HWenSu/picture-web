@@ -6,7 +6,9 @@
 }
 
 body {
-  font-family: "Roboto", sans-serif;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: e3e3e3;
 }
 
 a {
@@ -64,4 +66,5 @@ ul {
 @import './login';
 @import "./btn";
 @import "./reset";
-@import "./tag"
+@import "./tag";
+@import './landing'

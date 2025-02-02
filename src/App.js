@@ -6,19 +6,22 @@ import Page404 from "./pages/Page404";
 import Portfolio from "./pages/Portfolio";
 import SignUp from "./pages/SignUp";
 import Favorite from "./pages/Favorite";
+import LandingPage from "./pages/LandingPage";
 
 
 function App() {
   return (
     <HashRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />}></Route>
-          <Route path="*" element={<Page404 />}></Route>
-          <Route path="portfolio" element={<Portfolio />}></Route>
-          <Route path="sign-up" element={<SignUp />}></Route>
-          <Route path="favorite" element={<Favorite />}></Route>
-
+        {/* 首先顯示 LandingPage */}
+        <Route path="/" element={<LandingPage/>}/>
+        {/* 當動畫結束後，導向 /home */}
+        <Route path="/picture-web" element={<Layout />}>
+        <Route index element={<HomePage />}/>
+          <Route path="*" element={<Page404 />}/>
+          <Route path="portfolio" element={<Portfolio />}/>
+          <Route path="sign-up" element={<SignUp />}/>
+          <Route path="favorite" element={<Favorite />}/>
         </Route>
       </Routes>
     </HashRouter>

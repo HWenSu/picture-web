@@ -4,7 +4,7 @@ $mobile: 768px;
   display: flex;
   position: sticky;
   top: 0; /* 固定在頂部 */
-  z-index: 1000; /* 確保搜尋欄在內容上方 */
+  z-index: 999; /* 確保搜尋欄在內容上方 */
   background-color: #2d2d2d6f;
   backdrop-filter: blur(2px);
   justify-content: center;
