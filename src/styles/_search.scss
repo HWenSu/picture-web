@@ -5,7 +5,7 @@ $mobile: 768px;
   position: sticky;
   top: 0; /* 固定在頂部 */
   z-index: 999; /* 確保搜尋欄在內容上方 */
-  background-color: #2d2d2d6f;
+  background-color: #4848482b;
   backdrop-filter: blur(2px);
   justify-content: center;
   align-items: center;
@@ -23,7 +23,7 @@ $mobile: 768px;
     padding: 0.5rem;
     margin-right: 1.2rem;
     border-radius: 30px;
-    background-color: #eeeeee;
+    background-color: #eeeaea;
   }
     input{
       width: 28vw;

@@ -193,8 +193,8 @@ const LandingPage = () => {
         <div ref={(el)=>(itemsRef.current[1]=el)} onClick={()=> navigate('/picture-web/favorite')}>favorite</div>
       </nav>
       <footer>
-        <div ref={(el)=>(itemsRef.current[2]=el)}>portfolio</div>
-        <div ref={(el)=>(itemsRef.current[3]=el)}>sing in</div>
+        <div ref={(el)=>(itemsRef.current[2]=el)} onClick={()=> navigate('/picture-web/portfolio')}>portfolio</div>
+        <div ref={(el)=>(itemsRef.current[3]=el)} onClick={()=> navigate('/picture-web/sing-up')}>sing-up</div>
       </footer>
       <div className="header">
         <div className="placeholder" ref={placeholderRef}>ELVA</div>

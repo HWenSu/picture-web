@@ -7,7 +7,7 @@ import './styles/style.css'
 const Layout = () => {
   return (
     <div>
-      <nav>
+      <nav className="navbar">
         <ul>
           <li>
             <Link to="/">Home Page</Link>

@@ -6,8 +6,6 @@ import "wc-waterfall";
 import Waterfall from "../components/Waterfall";
 import { useInView } from 'react-intersection-observer';
 
-
-
 const HomePage = () => {
   const [data, setData] = useState([]);
   const [input, setInput] = useState('')
@@ -22,7 +20,7 @@ const HomePage = () => {
     if(!currentSearch){
       search(initialURL);
     }
-  }, []);
+  }, [currentSearch]);
 
 //取得Search API
   const search = async (url) => {
@@ -90,6 +88,8 @@ const HomePage = () => {
             // 使用動態生成的 URL
             const dynamicSearchURL = generateSearchURL(input);
             search(dynamicSearchURL);
+          } else {
+            search(initialURL)
           }
         }}
         setInput={(value)=>{
