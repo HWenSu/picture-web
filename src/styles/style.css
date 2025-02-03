@@ -9,6 +9,7 @@ body {
   width: 100vw;
   min-height: 100vh;
   background-color: #ececec;
+  font-family: "Aldrich", serif;
 }
 
 a {
@@ -47,6 +48,7 @@ ul {
   transition: all 0.3s ease;
 }
 .morePicture button:hover {
+  transform: translateY(-2px);
   background-color: rgb(230, 230, 230);
   color: #2f2f2f;
   box-shadow: rgba(198, 198, 205, 0.25) 0px 30px 60px -12px inset, rgba(134, 134, 134, 0.3) 0px 18px 36px -18px inset;
@@ -121,8 +123,9 @@ ul {
 }
 .search input:focus {
   color: #2f2f2f;
-  border: 2px solid rgb(48, 48, 48);
-  outline: none;
+  box-shadow: 3px 3px 5px 2px rgba(56, 56, 56, 0.062745098);
+  transform: translateY(-1px);
+  transition: transform 0.3s ease-in-out;
 }
 @media (max-width: 768px) {
   .search input {
@@ -199,9 +202,20 @@ ul {
 .picture-modal-container .picture-info-container .info-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   flex: 1;
-  height: 28rem;
-  padding: 1rem;
+  padding: 8rem 1rem;
+}
+.picture-modal-container .picture-info-container .info-container p {
+  font-size: 2rem;
+  text-align: center;
+  line-height: 2rem;
+}
+.picture-modal-container .picture-info-container .info-container .btn-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 7rem;
+  scale: 1.2;
 }
 .picture-modal-container p {
   margin: 0;
@@ -253,7 +267,7 @@ ul {
   flex-direction: column;
   position: fixed;
   right: 2rem;
-  z-index: 50;
+  z-index: 1000;
   padding: 2rem;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.286);
@@ -350,6 +364,7 @@ ul {
        user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  scale: 0.8;
 }
 .main-button ::after, .main-button ::before {
   content: "";
@@ -519,7 +534,6 @@ time, mark, audio, video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: inherit;
   vertical-align: baseline;
   margin-block-start: 0;
   margin-block-end: 0;
@@ -581,9 +595,9 @@ table {
   align-items: center;
 }
 .tag-container .color-platte-tag-container .color-platte-container {
-  opacity: 0;
+  visibility: hidden;
   position: absolute;
-  top: 3.6rem;
+  top: 3.2rem;
   left: -30%;
   background-color: rgba(255, 255, 255, 0.2509803922);
   width: 15rem;
@@ -606,11 +620,21 @@ table {
   transition: 0.4s ease-in-out;
 }
 .tag-container .color-platte-tag-container:hover .color-platte-container {
-  opacity: 1;
+  visibility: visible;
+  transform: translateY(10px);
   transition: 0.6s ease-in-out;
 }
 .tag-container .color-platte-tag-container:hover svg {
   rotate: 180deg;
+  transition: 0.3s ease-in-out;
+}
+.tag-container .reset-btn {
+  background-color: #acacac;
+  color: #676767;
+}
+.tag-container .reset-btn:hover {
+  background-color: #444444;
+  color: #ffffff;
   transition: 0.3s ease-in-out;
 }
 

@@ -29,8 +29,9 @@ $mobile: 768px;
       width: 28vw;
       &:focus{
         color: #2f2f2f;
-        border: 2px solid rgb(48, 48, 48);
-        outline: none;
+        box-shadow: 3px 3px 5px 2px #38383810;
+        transform: translateY(-1px);
+        transition: transform 0.3s ease-in-out;
       }
       @media(max-width:$mobile){
         width: 50vw;

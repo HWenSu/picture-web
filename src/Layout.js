@@ -10,16 +10,16 @@ const Layout = () => {
       <nav className="navbar">
         <ul>
           <li>
-            <Link to="/">Home Page</Link>
+            <Link to="/">HOME</Link>
           </li>
           <li>
-            <Link to="/picture-web">Ideas</Link>
+            <Link to="/picture-web">IDEAS</Link>
           </li>
           <li>
-            <Link to="/picture-web/portfolio">Portfolio</Link>
+            <Link to="/picture-web/portfolio">PORTFOLIO</Link>
           </li>
           <li>
-          <Link to="/picture-web/favorite">Favorite</Link>
+          <Link to="/picture-web/favorite">FAVORITE</Link>
           </li>
           <li>
             <LoginBtn/>

@@ -53,7 +53,7 @@ const Picture = ({ data, imgURL, height,  isRenderHeartIcon}) => {
         <div className='picture-btn' onClick={handlePicture}>
           <div className="imageContainer" style={{ height: height + "px" }}>
           <img src={imgURL} alt={data.alt || "Image"} />
-          <a target="_blank" href={imgURL} rel="noreferrer"></a>
+          <a target="_blank" href={imgURL} rel="noreferrer"> </a>
           </div>      
         </div>
           {/* 收藏組件 */}

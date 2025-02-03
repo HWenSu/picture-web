@@ -1,5 +1,5 @@
 import { useAuth } from "../context/AuthContext"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Collect from "./Collect"
 
 const PictureModal = ( { data, src, alt, photographer, photographer_url, url, handlePicture, isFavorite, onFavoriteChange } ) => {
@@ -24,13 +24,13 @@ const PictureModal = ( { data, src, alt, photographer, photographer_url, url, ha
           
           <p>{photographer.toUpperCase()}</p>
         </div>
+        <div className='btn-container'>
+          <Collect data={data} isFavorite={isFavorite} onFavoriteChange={onFavoriteChange} />
         <button className="main-button">
-          <a href={url} target="_blank">
+          <a href={url} target="_blank" rel="noreferrer">
           Visit Website
           </a>
         </button>
-        <div>
-          <Collect data={data} isFavorite={isFavorite} onFavoriteChange={onFavoriteChange} />
         </div>
         
       </section>
