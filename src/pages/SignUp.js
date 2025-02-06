@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth } from '../components/firebase';
+import { auth } from '../firebase';
 
 const handleRegister = async (email, password) => {
   try {

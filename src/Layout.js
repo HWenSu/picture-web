@@ -6,7 +6,7 @@ import './styles/style.css'
 
 const Layout = () => {
   return (
-    <div>
+    <div className="layout">
       <nav className="navbar">
         <ul>
           <li>
@@ -26,7 +26,9 @@ const Layout = () => {
           </li>
         </ul>
       </nav>
+      <div className="main-container">
       <Outlet />
+      </div>
       <Footer />
     </div>
   );

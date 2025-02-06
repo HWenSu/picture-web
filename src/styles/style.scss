@@ -5,11 +5,12 @@
   box-sizing: border-box;
 }
 
-body {
-  width: 100vw;
-  min-height: 100vh;
+html, body {
+  min-height: 100vh ; 
   background-color: #ececec;
   font-family: "Aldrich", serif;
+  display: flex;
+  flex-direction: column;
 }
 
 a {
@@ -21,6 +22,17 @@ ul {
   list-style-type: none;
 }
 
+.layout{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-container{
+  height: 100%;
+  flex-grow: 1;
+}
+
 
 .waterfall{
   display: flex;
@@ -28,11 +40,9 @@ ul {
 }
 
 .load {
-  height: 100vh;
+  min-height: 100vh;
   overflow-y: auto;
 }
-
-
 
 .morePicture {
   display: flex;
@@ -69,4 +79,5 @@ ul {
 @import "./btn";
 @import "./reset";
 @import "./tag";
-@import './landing'
+@import './landing';
+@import './uploadImg';

@@ -79,7 +79,7 @@ const HomePage = () => {
 
 
   return (
-    <div style={{ minHeight: "100vh" }}>
+    <div>
       <Search
         search={() => {
           if (input.trim() !== "") {

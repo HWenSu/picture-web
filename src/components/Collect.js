@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-import {db, auth} from "./firebase" //引入Firestore 和 Authentication
+import {db, auth} from "../firebase" //引入Firestore 和 Authentication
 import {doc, setDoc, deleteDoc, onSnapshot} from "firebase/firestore" // 從 Firestore 引入 `doc` 和 `setDoc`，用於創建/修改 Firestore 文檔。
 import { useAuth } from '../context/AuthContext'
 

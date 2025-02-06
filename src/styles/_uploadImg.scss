@@ -1,0 +1,57 @@
+.upload-image-modal{
+  width: 80vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff53;
+  border-radius: 20px;
+  margin: 2rem auto;
+  .upload-image-container{
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+    .file-container{
+      margin: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .preImg-container{
+        margin-top: 2rem;
+        img{
+          width: 120px;
+        }
+      }
+    }
+    .info-edit-container{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      label{
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      align-items: center;
+      }
+      input, select, textArea {
+        all: unset;
+        margin: 0.8rem 0.5rem;
+        width: 15rem;
+        background-color: #ffffffc7;
+        padding: 0.5rem;
+        border-radius: 10px;
+      }
+
+    }
+  }
+  button{
+    all: unset;
+    width: 20rem;
+    height: 3rem;
+    margin: 2rem;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 22px;
+  }
+}

@@ -5,6 +5,8 @@ import Collect from "./Collect"
 const PictureModal = ( { data, src, alt, photographer, photographer_url, url, handlePicture, isFavorite, onFavoriteChange } ) => {
   const {user} = useAuth()
   const [isClosed, setIsClosed]=useState(false)
+  console.log(data)
+  const title = data.title
 
   const handleClose = ()=> {
     setIsClosed (true)
@@ -22,16 +24,24 @@ const PictureModal = ( { data, src, alt, photographer, photographer_url, url, ha
       <section className="info-container">
         <div className="photographer">
           
-          <p>{photographer.toUpperCase()}</p>
+          <p>{photographer?.toUpperCase()}</p>
         </div>
+        {photographer&&
         <div className='btn-container'>
           <Collect data={data} isFavorite={isFavorite} onFavoriteChange={onFavoriteChange} />
-        <button className="main-button">
+          <button className="main-button">
           <a href={url} target="_blank" rel="noreferrer">
           Visit Website
           </a>
-        </button>
+          </button>
         </div>
+        }
+        {title&&
+        <div>
+          <h3>{title}</h3>
+        </div>
+        }
+
         
       </section>
       </div>

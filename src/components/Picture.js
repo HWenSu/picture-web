@@ -5,7 +5,7 @@ import DownloadImage from './DownloadImage';
 import ShareURL from './ShareURL';
 import { useAuth } from '../context/AuthContext';
 import { collection, getDocs } from "firebase/firestore";
-import { db } from "../components/firebase";
+import { db } from "../firebase";
 
 const Picture = ({ data, imgURL, height,  isRenderHeartIcon}) => {
 

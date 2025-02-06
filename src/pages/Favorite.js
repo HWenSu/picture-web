@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react'
-import { db } from '../components/firebase'
+import { db } from '../firebase'
 import {collection, getDoc, getDocs} from "firebase/firestore"
 import { useAuth } from '../context/AuthContext'
 import Waterfall from '../components/Waterfall'
