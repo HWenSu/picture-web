@@ -218,7 +218,7 @@ ul {
   flex: 1;
   padding: 8rem 1rem;
 }
-.picture-modal-container .picture-info-container .info-container p {
+.picture-modal-container .picture-info-container .info-container h2 {
   font-size: 2rem;
   text-align: center;
   line-height: 2rem;
@@ -231,7 +231,7 @@ ul {
 }
 .picture-modal-container p {
   margin: 0;
-  font-size: 2rem;
+  font-size: 1.1rem;
   color: rgb(19, 19, 19);
 }
 

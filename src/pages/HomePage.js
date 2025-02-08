@@ -116,7 +116,6 @@ const HomePage = () => {
                 imgURL={imgURL()}
                 data={data}
                 width={window.innerWidth}
-                isRenderHeartIcon={true}
               />
             )}
           </div>

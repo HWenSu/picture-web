@@ -7,7 +7,7 @@ import { useAuth } from '../context/AuthContext';
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 
-const Picture = ({ data, imgURL, height,  isRenderHeartIcon}) => {
+const Picture = ({ data, imgURL, height}) => {
 
 
   const {user}=useAuth()
@@ -57,14 +57,12 @@ const Picture = ({ data, imgURL, height,  isRenderHeartIcon}) => {
           </div>      
         </div>
           {/* 收藏組件 */}
-          {isRenderHeartIcon&&
           <div className='heart-btn'>
             <Collect 
               data={data} 
               isFavorite={isFavorite} 
               onFavoriteChange={handleFavoriteChange} />
           </div>
-          }
           {/* 下載組件 */}
            <div className='download-btn'>
               <DownloadImage imgURL={imgURL} fileName={data.id} />

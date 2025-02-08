@@ -43,7 +43,7 @@ const allocateItem = (data, cols, colWidth ) => {
   
 
 const Waterfall = (props) => {
-  const { data = [], margin = 40, isRenderHeartIcon } = props;
+  const { data = [], margin = 40 } = props;
   const [width, setWidth] = useState(window.innerWidth) //視窗寬度
   // const defaultColWidth = (width - (cols - 1) * margin) / cols;  
   const [cols, setCols] = useState(4)
@@ -97,7 +97,6 @@ const Waterfall = (props) => {
                 data={item}
                 imgURL={item.src.large}
                 height={item.displayHeight}
-                isRenderHeartIcon={isRenderHeartIcon}
               />
             </li>
           ))}

@@ -29,7 +29,6 @@ const Favorite = () => {
       // imgURL={imgURL()}
       data={favorites}
       width={window.innerWidth}
-      isRenderHeartIcon={true}
       />
   </div>
   )

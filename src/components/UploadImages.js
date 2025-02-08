@@ -3,20 +3,22 @@ import axios from "axios";
 import { useInView } from "react-intersection-observer";
 import Waterfall from "./Waterfall";
 import { useAuth } from '../context/AuthContext'
+import { useParams } from "react-router-dom"; //取網址中的 userId
 
 const UploadImages = () => {
   const [file, setFile] = useState(null);
-  const [title, setTitle] = useState("");
-  const [tags, setTags] = useState("");
+  const [title, setTitle] = useState('');
+  const [tags, setTags] = useState('');
   const [description, setDescription] = useState('')
   const [category, setCategory] = useState("Graphic");
   const [showUploadImg, setShowUploadImg] = useState(false)
   const categoryList = ["Art", "Graphic", "Fashion", "Creative Coding", "Logo"];
-  const [hideUploadBtn, setHideUploadBtn] = useState(false)
   const [selected, setSelected] = useState([]);
   const [page, setPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
+  const [shareLink, setShareLink] = useState('')
   const baseURL = process.env.REACT_APP_API_BASE_URL;
+  const { userId } = useParams()
 
   const fileInputRef = useRef(null)
   const { user, loading } = useAuth();
@@ -24,22 +26,40 @@ const UploadImages = () => {
   // 初始化 API 獲取圖片
   useEffect(() => {
     if (loading) return; // 等待會員驗證完成
+    // 會員模式下檢視
     const fetchImages = async () => {
       try {
+        const loginUserId = user ? user.uid : null;
         const token = user ? await user.getIdToken() : null;
-        const userId = user ? user.uid : null;
         const response = await axios.get(`${baseURL}/images`, {
-          params: { userId },
+          params: { loginUserId },
           headers: token ? { "Authorization": `Bearer ${token}` } : {},
           withCredentials: true,
         });
         setSelected(response.data.data);
+        setShareLink(`${window.location}/user/${loginUserId}`)
       } 
       catch (error) {
+      }}
+    // 訪客模式下檢視
+    const fetchVisitorImages = async () => {
+      try {          
+        const response = await axios.get(`${baseURL}/user/${userId}`, {
+          params: { userId },
+          withCredentials: true,
+        })
+        setSelected(response.data.data)
+        } 
+      catch (error) {
       }
-    };
+
+    }
+    if(user){
     fetchImages();
-  }, [baseURL, user, loading]);
+    } else {
+    fetchVisitorImages()
+    }
+  }, [ baseURL, user, loading ])
   
 
 
@@ -60,6 +80,7 @@ const UploadImages = () => {
     formData.append("file", file);
     formData.append("title", title);
     formData.append("description", description);
+    formData.append('category', category)
     const tagArr = tags.split(",").map((tag) => tag.trim());
     tagArr.forEach((tag) => formData.append("tags", tag));
   
@@ -127,13 +148,24 @@ const UploadImages = () => {
   // 過濾有效圖片
   const validImages = selected.filter((img) => img?.src?.large);
 
+  // 分享連結
+  const handleShareLink = async() => {
+    setShowUploadImg(false)
+    if(!shareLink) return 
+    try{
+      await navigator.clipboard.writeText(shareLink)
+      alert("分享連結已複製到剪貼簿！");
+    } catch(error) {
+      console.log('分享連結失敗')
+    }
+  }
+
   return (
     <div>
       {user&&
       <section>
-        {!hideUploadBtn&&
-          <button onClick={()=> setShowUploadImg(!showUploadImg)} >Upload Image</button>}
-        <button onClick={()=> setHideUploadBtn(!hideUploadBtn) } >{ hideUploadBtn? "Back to edit":"Preview Mode"}</button>
+          <button onClick={()=> setShowUploadImg(!showUploadImg)} >{showUploadImg? 'Back':'Upload Image'}</button>
+          {!showUploadImg&& <button onClick={handleShareLink} >Share portfolio</button>}
       </section>
       }
       {showUploadImg&&
@@ -171,11 +203,9 @@ const UploadImages = () => {
               ))}
             </select>
           </label>
-          
-          
         </div>
         </div>
-      <button onClick={handleUpload}>Upload File</button>
+      <button onClick={handleUpload} >Upload File</button>
       </section>
       }
       {/* 瀑布流顯示圖片 */}

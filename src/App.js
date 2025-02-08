@@ -7,7 +7,7 @@ import Portfolio from "./pages/Portfolio";
 import SignUp from "./pages/SignUp";
 import Favorite from "./pages/Favorite";
 import LandingPage from "./pages/LandingPage";
-
+import VisitImagPage from "./pages/VisitImagPage";
 
 function App() {
   return (
@@ -20,6 +20,7 @@ function App() {
         <Route index element={<HomePage />}/>
           <Route path="*" element={<Page404 />}/>
           <Route path="portfolio" element={<Portfolio />}/>
+          <Route path="portfolio/user/:userId" element={<VisitImagPage />} />
           <Route path="sign-up" element={<SignUp />}/>
           <Route path="favorite" element={<Favorite />}/>
         </Route>

@@ -23,8 +23,7 @@ const PictureModal = ( { data, src, alt, photographer, photographer_url, url, ha
       </section>
       <section className="info-container">
         <div className="photographer">
-          
-          <p>{photographer?.toUpperCase()}</p>
+          <h2>{photographer?.toUpperCase()}</h2>
         </div>
         {photographer&&
         <div className='btn-container'>
@@ -38,7 +37,10 @@ const PictureModal = ( { data, src, alt, photographer, photographer_url, url, ha
         }
         {title&&
         <div>
-          <h3>{title}</h3>
+          {console.log(data)}
+          <h2>{title}</h2>
+          <h3>{data.category}</h3>
+          <p>{data.description}</p>
         </div>
         }
 
