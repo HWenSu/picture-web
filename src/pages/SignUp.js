@@ -23,8 +23,8 @@ const SignUp = () => {
   const [password, setPassword] = useState("")
 
   return (
-    <div>
-      <h3>SignUp</h3>
+    <div className='sign-up-container'>
+      <h3>Sign Up</h3>
       <div className='login-input-area'>
         <label htmlFor='account'>Account:</label>
         <input type='text' id='account' value={email} onChange={(e)=> setEmail(e.target.value) } required></input>
@@ -33,7 +33,7 @@ const SignUp = () => {
         <label htmlFor='password'>Password:</label>
         <input type='password' id='password' value={password} onChange={(e)=> setPassword(e.target.value) } required></input>
       </div>
-      <button onClick={()=>handleRegister(email, password)}>Submit</button>
+      <button onClick={()=>handleRegister(email, password)} className='dark-btn'>Submit</button>
     </div>
   )
 }

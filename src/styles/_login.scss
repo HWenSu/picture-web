@@ -1,16 +1,14 @@
 .login-container{
   display: flex;
   flex-direction: column;
-  position: fixed;
-  right: 2rem;
+  position: absolute;
+  right: 1rem;
   z-index: 1000;
   padding: 2rem;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.286);
   border-radius: 20px;
   backdrop-filter: blur(30px);
-
-
 
   .close-btn{
     position: fixed;
@@ -27,10 +25,20 @@
     margin-bottom: 0.8rem;
   }
 
-  .login-input-area {
-    margin: 0.3rem;
-  }
+
+    p {
+      margin: 1rem 0;
+    }
+
   
+}
+
+.login-input-area {
+  width: 18rem;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  margin: 1rem 0.3rem;
+  align-items: center;
   label {
     padding-right:  1rem;
     font-size: 18px;
@@ -39,9 +47,6 @@
   input {
     border-radius: 10px;
     padding: 0.2rem;
-  }
-  p {
-    margin: 1rem 0;
   }
 }
 
@@ -65,4 +70,23 @@
         
     }
 
+}
+
+.sign-up-container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h3{
+    font-size: 2rem;
+    margin: 2rem 0 1rem 0;
+  }
+  .dark-btn{
+    font-size: 1.2rem;
+    text-align: center;
+    width: 18rem;
+    line-height: 1.2rem;
+    margin: 1.5rem;
+  }
 }

@@ -1,0 +1,40 @@
+.alert-modal{
+  background-color: rgba(0, 0, 0, 0.895);
+  position: fixed;
+  top: 25%;
+  right: 5%;
+  width: 90%;
+  height: 25%;
+  color: #e6e6e6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1.2rem;
+  z-index: 1000;
+  .alert-modal-bg{
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.214);
+    cursor:default;
+  }
+}
+
+.common-icon{
+  .alert-modal{
+    top: 50%;
+    font-size: 1.2rem;
+  }
+}
+
+.confirm-panel{
+  position: sticky;
+  z-index: 1000;
+  button{
+    margin: 0 1rem ;
+    pointer-events: painted;
+  }
+}

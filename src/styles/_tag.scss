@@ -58,13 +58,12 @@
       }
     }
   }
-  .reset-btn{
-    background-color: #acacac;
-    color: #676767;
-      &:hover{
-        background-color: #444444;
-        color: #ffffff;
-        transition: 0.3s ease-in-out;
-      }
+  .dark-btn{
+    background-color: rgb(114, 114, 114);
+    color: #3a3a3a;
+    &:hover{
+      padding: 1rem;
+    }
   }
+
 }

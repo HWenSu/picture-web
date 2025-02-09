@@ -19,7 +19,7 @@ const Logout = ({onClose}) => {
 
   return (
     <div>
-      <button onClick={handleLogOut}>
+      <button onClick={handleLogOut} className='dark-btn'>
         Log Out
       </button>
     </div>

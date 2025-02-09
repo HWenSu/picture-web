@@ -28,7 +28,7 @@ const LoginBtn = () => {
   {/* 顯示或關閉彈出窗 */}
     {!isClosed? (
     <div className='login-container'>
-     <Login onClose={onClose} />
+     <Login onClose={onClose} loginBtnClicked={true} />
      {user&& <Logout onClose={onClose} />}
     </div>
     ) : null}

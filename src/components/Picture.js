@@ -56,6 +56,8 @@ const Picture = ({ data, imgURL, height}) => {
           <a target="_blank" href={imgURL} rel="noreferrer"> </a>
           </div>      
         </div>
+        {data.photographer&&
+        <>
           {/* 收藏組件 */}
           <div className='heart-btn'>
             <Collect 
@@ -63,14 +65,17 @@ const Picture = ({ data, imgURL, height}) => {
               isFavorite={isFavorite} 
               onFavoriteChange={handleFavoriteChange} />
           </div>
-          {/* 下載組件 */}
-           <div className='download-btn'>
-              <DownloadImage imgURL={imgURL} fileName={data.id} />
-          </div>
           {/* 分享組件 */}
           <div>
             <ShareURL/>
           </div>
+        </>
+          }
+          {/* 下載組件 */}
+          <div className='download-btn'>
+            <DownloadImage imgURL={imgURL} fileName={data.id} />
+          </div>
+   
       </div>
       <p className="photographer">{data.photographer}</p>
 

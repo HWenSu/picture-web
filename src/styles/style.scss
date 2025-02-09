@@ -68,6 +68,10 @@ ul {
   }
 }
 
+.favorite-container{
+  padding: 3rem 0;
+}
+
 
 
 @import "./nav";
@@ -81,3 +85,4 @@ ul {
 @import "./tag";
 @import './landing';
 @import './uploadImg';
+@import './alert'

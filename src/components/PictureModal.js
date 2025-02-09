@@ -26,7 +26,7 @@ const PictureModal = ( { data, src, alt, photographer, photographer_url, url, ha
           <h2>{photographer?.toUpperCase()}</h2>
         </div>
         {photographer&&
-        <div className='btn-container'>
+        <div className="btn-container">
           <Collect data={data} isFavorite={isFavorite} onFavoriteChange={onFavoriteChange} />
           <button className="main-button">
           <a href={url} target="_blank" rel="noreferrer">

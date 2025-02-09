@@ -48,7 +48,7 @@ const Tags = ({setTag}) => {
               />
             </div>
           </div>
-          <button onClick={handleClearTags} className="reset-btn">
+          <button onClick={handleClearTags} className="dark-btn">
             X Reset
           </button>
     </div>

@@ -39,3 +39,28 @@ $mobile: 768px;
     }
   }
 }
+
+.non-login-page{
+  margin: 2rem;
+  .login-content-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h3{
+      font-size: 1.5rem;
+    }
+    button {
+      text-align: center;
+      margin: 2rem;
+    }
+    .sign-up-section{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      p{
+        padding-right: 2rem;
+      }
+    }
+    }
+  }
