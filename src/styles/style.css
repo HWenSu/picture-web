@@ -807,7 +807,7 @@ button {
 }
 .tag-container .color-platte-tag-container:hover .color-platte-container {
   visibility: visible;
-  transform: translateY(10px);
+  transform: translateY(5px);
   transition: 0.6s ease-in-out;
 }
 .tag-container .color-platte-tag-container:hover svg {
