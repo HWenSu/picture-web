@@ -211,38 +211,49 @@ ul {
   display: flex;
   justify-content: center;
   align-self: center;
-  width: 60rem;
-  max-height: 25rem;
+  width: 60vw;
+  max-height: 80vh;
   margin: 10vh auto;
   border-radius: 20px;
   background-color: rgb(255, 255, 255);
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 @media (max-width: 768px) {
   .picture-modal-container .picture-info-container {
-    width: 23rem;
+    flex-direction: column;
+    max-height: none; /* 允許高度自適應 */
+    margin: 5vh auto;
   }
 }
 .picture-modal-container .picture-info-container .picture-section {
-  width: 30rem;
+  width: 50%;
   max-height: 32rem;
   display: flex;
   justify-content: center;
+  overflow: hidden;
 }
 .picture-modal-container .picture-info-container .picture-section img {
   width: 100%;
   -o-object-fit: contain;
      object-fit: contain;
 }
+@media (max-width: 768px) {
+  .picture-modal-container .picture-info-container .picture-section {
+    width: 100%;
+    max-height: 40vh;
+  }
+}
 .picture-modal-container .picture-info-container .info-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   flex: 1;
+  padding: 10% 10%;
 }
 @media (max-width: 768px) {
   .picture-modal-container .picture-info-container .info-container {
     justify-content: center;
+    padding: 1rem 10%;
   }
 }
 .picture-modal-container .picture-info-container .info-container h2 {
@@ -459,6 +470,11 @@ p {
   border-color: rgba(0, 0, 0, 0.15);
   box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
   color: rgba(0, 0, 0, 0.65);
+}
+@media (max-width: 768px) {
+  .close-btn {
+    scale: 0.8;
+  }
 }
 
 .main-button {
@@ -825,6 +841,11 @@ button {
   display: flex;
   justify-content: space-between;
 }
+@media (max-width: 768px) {
+  .Landing-page-container nav, .Landing-page-container footer {
+    padding: 1rem;
+  }
+}
 .Landing-page-container footer {
   bottom: 0;
 }
@@ -859,6 +880,11 @@ button {
   background-color: #000;
   border-radius: 30px;
   padding: 1rem;
+}
+@media (max-width: 768px) {
+  .Landing-page-container .header .alert-animation {
+    width: 60vw;
+  }
 }
 
 .cursor {
@@ -895,6 +921,11 @@ button {
   justify-content: center;
   margin: 1rem;
 }
+@media (max-width: 768px) {
+  .upload-image-modal .upload-image-container {
+    flex-direction: column;
+  }
+}
 .upload-image-modal .upload-image-container .file-container {
   margin: 1rem;
   display: flex;
@@ -917,6 +948,14 @@ button {
   display: grid;
   grid-template-columns: 1fr 2fr;
   align-items: center;
+}
+@media (max-width: 768px) {
+  .upload-image-modal .upload-image-container .info-edit-container label {
+    grid-template-columns: 1fr;
+    justify-content: center;
+    text-align: center;
+    margin: 1rem 0;
+  }
 }
 .upload-image-modal .upload-image-container .info-edit-container input, .upload-image-modal .upload-image-container .info-edit-container select, .upload-image-modal .upload-image-container .info-edit-container textArea {
   all: unset;
@@ -975,6 +1014,11 @@ button {
 }
 .upload-btn-container button:hover svg {
   animation: rotate-animation 0.5s ease-in-out forwards;
+}
+@media (max-width: 768px) {
+  .upload-btn-container button {
+    margin: 1rem 1rem;
+  }
 }
 
 @keyframes type-animation {

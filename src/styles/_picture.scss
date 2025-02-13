@@ -16,31 +16,41 @@ $mobile: 768px;
     justify-content: center;
     align-self:center;
     width: 60vw;
-    max-height: 60vh;
+    // min-height: 20vh;
+    max-height: 80vh;
     margin: 10vh auto;
     border-radius: 20px;
     background-color: rgb(255, 255, 255);
-    overflow-y: scroll;
+    overflow-y: auto;
     @media (max-width:$mobile){
-    // width: 23rem;
+      flex-direction: column; 
+      max-height: none;/* 允許高度自適應 */
+      margin: 5vh auto;
     }
     .picture-section{
-      width: 30rem;
+      width: 50%;
       max-height: 32rem;
       display: flex;
       justify-content: center;
+      overflow: hidden;
         img{
           width: 100%;
           object-fit: contain;
         }
+        @media (max-width:$mobile){
+          width: 100%;
+          max-height: 40vh;
+    }
     }
     .info-container{
       display: flex;
       flex-direction: column;
-      justify-content: space-around;
+      justify-content: space-between;
       flex: 1;
+      padding: 10% 10%;
       @media (max-width:$mobile){
         justify-content: center;
+        padding: 1rem 10%;
       }
       h2 {
         font-size: 2rem;

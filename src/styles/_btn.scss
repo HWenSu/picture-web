@@ -1,3 +1,4 @@
+$mobile:768px;
 .close-btn {
   position: absolute;
   top: 10px;
@@ -15,6 +16,9 @@
     border-color: rgba(0, 0, 0, 0.15);
     box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
     color: rgba(0, 0, 0, 0.65);
+  }
+  @media (max-width:$mobile) {
+    scale: 0.8;
   }
 }
 
