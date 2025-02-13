@@ -70,6 +70,17 @@ ul {
   padding: 3rem 0;
 }
 
+.loading-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  margin: 30vh 0;
+}
+.loading-container p {
+  font-size: 3rem;
+}
+
 .navbar {
   background-color: #252525;
 }
