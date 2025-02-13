@@ -1,7 +1,15 @@
+$mobile: 768px;
 .tag-container{
   display: flex;
   justify-content: space-around;
   margin-bottom: 2rem;
+  @media (max-width:$mobile){
+    width: 100vw;
+    font-size: 0.7rem;
+    line-height: 0.7rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.3rem;
+  }
   button{
     all:unset;
     padding: 1rem;
@@ -12,6 +20,7 @@
       background-color: rgb(202, 202, 202);
       transition: 0.3s ease-in-out;
     }
+  
   }
 
   .color-platte-tag-container{
@@ -23,6 +32,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    @media (max-width:$mobile){
+      padding: 1rem;
+      text-align: center;
+      margin: 1rem;
+      svg{
+        scale: 0.5
+      }
+    }
       .color-platte-container{
         visibility: hidden;
         position: absolute;
@@ -63,6 +80,10 @@
     color: #3a3a3a;
     &:hover{
       padding: 1rem;
+    }
+    @media (max-width:$mobile){
+
+      margin: 1rem;
     }
   }
 

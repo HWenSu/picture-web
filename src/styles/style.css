@@ -82,6 +82,7 @@ ul {
   .navbar ul {
     margin: 0 auto;
     justify-content: center;
+    font-size: 0.5rem;
   }
 }
 .navbar ul li {
@@ -91,6 +92,13 @@ ul {
   color: rgb(225, 229, 233);
   font-size: 1.25rem;
   padding: 0 1rem;
+}
+@media (max-width: 768px) {
+  .navbar ul li a {
+    margin: 0 auto;
+    justify-content: center;
+    font-size: 0.8rem;
+  }
 }
 .navbar ul .login-btn {
   border: rgba(255, 255, 255, 0.4784313725) 1px solid;
@@ -128,7 +136,7 @@ ul {
 }
 @media (max-width: 768px) {
   .search {
-    padding: 0.8rem 0rem;
+    padding: 0.5rem 0rem;
   }
 }
 .search input,
@@ -151,8 +159,8 @@ ul {
 @media (max-width: 768px) {
   .search input {
     width: 50vw;
-    padding: 0.8rem 1rem;
-    margin: 0 0.8rem;
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
   }
 }
 .search button {
@@ -171,8 +179,8 @@ ul {
 }
 @media (max-width: 768px) {
   .search button {
-    padding: 1rem;
-    font-size: 0.8rem;
+    padding: 0.3rem;
+    font-size: 0.4rem;
   }
 }
 
@@ -210,6 +218,11 @@ ul {
   background-color: rgb(255, 255, 255);
   overflow-y: scroll;
 }
+@media (max-width: 768px) {
+  .picture-modal-container .picture-info-container {
+    width: 23rem;
+  }
+}
 .picture-modal-container .picture-info-container .picture-section {
   width: 30rem;
   max-height: 32rem;
@@ -227,11 +240,21 @@ ul {
   justify-content: space-around;
   flex: 1;
 }
+@media (max-width: 768px) {
+  .picture-modal-container .picture-info-container .info-container {
+    justify-content: center;
+  }
+}
 .picture-modal-container .picture-info-container .info-container h2 {
   font-size: 2rem;
   text-align: center;
   line-height: 2rem;
   margin: 1rem auto;
+}
+@media (max-width: 768px) {
+  .picture-modal-container .picture-info-container .info-container h2 {
+    font-size: 1rem;
+  }
 }
 .picture-modal-container .picture-info-container .info-container h3, .picture-modal-container .picture-info-container .info-container p {
   margin: 1rem;
@@ -243,8 +266,23 @@ ul {
   align-items: center;
   align-self: center;
 }
+@media (max-width: 768px) {
+  .picture-modal-container .picture-info-container .btn-container {
+    font-size: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
 .picture-modal-container .picture-info-container .btn-container button {
   scale: 1;
+}
+@media (max-width: 768px) {
+  .picture-modal-container .picture-info-container .btn-container button {
+    width: 2rem;
+    height: 1rem;
+    margin: 1rem;
+  }
 }
 
 p {
@@ -686,6 +724,15 @@ button {
   justify-content: space-around;
   margin-bottom: 2rem;
 }
+@media (max-width: 768px) {
+  .tag-container {
+    width: 100vw;
+    font-size: 0.7rem;
+    line-height: 0.7rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.3rem;
+  }
+}
 .tag-container button {
   all: unset;
   padding: 1rem;
@@ -706,6 +753,16 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+@media (max-width: 768px) {
+  .tag-container .color-platte-tag-container {
+    padding: 1rem;
+    text-align: center;
+    margin: 1rem;
+  }
+  .tag-container .color-platte-tag-container svg {
+    scale: 0.5;
+  }
 }
 .tag-container .color-platte-tag-container .color-platte-container {
   visibility: hidden;
@@ -747,6 +804,11 @@ button {
 }
 .tag-container .dark-btn:hover {
   padding: 1rem;
+}
+@media (max-width: 768px) {
+  .tag-container .dark-btn {
+    margin: 1rem;
+  }
 }
 
 .Landing-page-container {
