@@ -9,10 +9,11 @@ $mobile: 768px;
     line-height: 0.7rem;
     flex-wrap: wrap;
     margin-bottom: 0.3rem;
+    // padding: 0 0.5rem;
   }
   button{
     all:unset;
-    padding: 1rem;
+    padding: 0.5rem;
     cursor: pointer;
     background-color: rgba(223, 223, 223, 0.7);
     border-radius: 33px;
@@ -26,16 +27,16 @@ $mobile: 768px;
   .color-platte-tag-container{
     position: relative;
     background-color: rgb(216, 216, 216);
-    padding: 1rem;
+    padding: 0.5rem;
     cursor: pointer;
     border-radius: 33px;
     display: flex;
     justify-content: center;
     align-items: center;
     @media (max-width:$mobile){
-      padding: 1rem;
+      padding: 0.5rem;
       text-align: center;
-      margin: 1rem;
+      margin: 0.5rem;
       svg{
         scale: 0.5
       }
@@ -81,7 +82,7 @@ $mobile: 768px;
       padding: 1rem;
     }
     @media (max-width:$mobile){
-      margin: 1rem;
+      margin: 0.5rem;
     }
   }
 

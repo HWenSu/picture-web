@@ -8,17 +8,23 @@ $mobile:768px;
   background-color: #f0f0f0;
   border: 1px solid rgba(134, 134, 134, 0.145);
   color: rgba(137, 137, 137, 0.85);
-  border-radius: 50px;
+  border-radius: 50%;
   font-size: 1.2rem;
-  line-height: 1.2rem;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
   &:hover{
     border-color: rgba(0, 0, 0, 0.15);
     box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
     color: rgba(0, 0, 0, 0.65);
   }
   @media (max-width:$mobile) {
-    scale: 0.8;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 0.7rem;
+    top: 5px;
+    right: 5px;
   }
 }
 

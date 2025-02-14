@@ -82,9 +82,10 @@ $mobile: 768px;
         button{
           scale: 1;
           @media (max-width:$mobile){
-            width: 2rem;
+            width: 5rem;
             height: 1rem;
             margin: 1rem;
+            font-size: 0.8rem;
             }
         }
       }
