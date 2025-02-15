@@ -179,6 +179,10 @@ $mobile:768px;
   background-color: #ffffff;
   padding: 0 1rem;
   max-width: calc(100vw - 20px); /* 限制最大寬度，避免超出右邊界 */
+  @media (max-width:$mobile) {
+    width: 85vw;
+    padding: 0;
+  }
   button{
     all: unset;
     font-size: 14px;
@@ -191,16 +195,25 @@ $mobile:768px;
     &:hover{
       filter: brightness(0.95);
     }
-    img{
-      width: 3rem;
-      background-color: #ffffff;
+    @media (max-width:$mobile) {
+      width: 9vw;
+      font-size: 0.6rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-    svg{
-      width: 3rem;
-      height: 3rem;
-      padding: 0.3rem;
-    }
+      img{
+        width: 3rem;
+        background-color: #ffffff;
+      }
+      svg{
+        width: 3rem;
+        height: 3rem;
+        padding: 0.3rem;
+
+      }
   }
+
 }
 
 .color-btn{

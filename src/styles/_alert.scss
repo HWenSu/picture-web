@@ -1,3 +1,4 @@
+$mobile:768px;
 .alert-modal{
   background-color: rgba(0, 0, 0, 0.895);
   position: fixed;
@@ -11,6 +12,9 @@
   align-items: center;
   border-radius: 1.2rem;
   z-index: 1000;
+  @media (max-width:$mobile) {
+    flex-direction: column;
+  }
   .alert-modal-bg{
     z-index: 999;
     position: fixed;
